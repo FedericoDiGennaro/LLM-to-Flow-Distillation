@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "generator": {
+    "name": "FlowMol3",
+    "repository": "https://github.com/Dunni3/FlowMol.git",
+    "tag": "v3.1.0",
+    "revision": "40b42309da7247013a6254bbf567f3a8ef8d97c7",
+    "pretrained_model": "flowmol3"
+  },
+  "release": {
+    "model_url": "https://bits.csb.pitt.edu/files/FlowMol/trained_models_v3.1/flowmol3/",
+    "model_relative_path": "trained_models/flowmol3",
+    "checkpoint_relative_path": "trained_models/flowmol3/checkpoints/last.ckpt"
+  },
+  "smoke": {
+    "sample_count": 2,
+    "batch_size": 2,
+    "seed": 30602,
+    "flow_timesteps": 250,
+    "minimum_valid_sdfs": 1
+  }
+}

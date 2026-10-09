@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "experiment_id": "DRUGS-LTFD-GSK3B-FLOWMOL3-V1",
+  "execution_profile": "clariden_full_ltfd",
+  "run_gnina_after_campaign": false,
+  "campaign_status": "wired_pending_gsk3b_evaluation_freeze_and_execution_authorization",
+  "final_goal": "Generate promising drug-like small molecules for binding the ATP pocket of glycogen synthase kinase-3 beta (GSK3β), while maintaining reasonable aqueous solubility and chemically plausible structures.",
+  "candidate_pool": {
+    "path": "${MOLECULES_E2E_OUTPUT_ROOT}/p0/candidate_pool.jsonl",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "candidate_count": 100,
+    "generator": "released unconditional FlowMol3 GEOM-Drugs p0",
+    "generator_repository": "https://github.com/Dunni3/FlowMol.git",
+    "generator_revision": "40b42309da7247013a6254bbf567f3a8ef8d97c7",
+    "generator_tag": "v3.1.0",
+    "generator_checkpoint": "flowmol3",
+    "seed": 31601
+  },
+  "prompt_protocol": {
+    "version": "drugs-ltfd-reported-peptide-map-gsk3b-v1",
+    "geometric_contract": "Pos(F) subset Pos(G_m) subset ... subset Pos(G_2) subset Pos(G_1); the generator is updated on G_k until G_k is enriched, then the controller may propose only the smallest newly reachable semantic tightening.",
+    "initial_goal_rule": "Choose one weak but scientifically meaningful precursor toward the immutable GSK3β ATP-pocket binding, aqueous-solubility and structural-plausibility goal that is reachable and discriminative on p0. Do not encode descriptor cutoffs or claim target binding or solubility from SMILES or geometry.",
+    "correction_rule": "One initial proposal plus at most three material corrections on the same frozen 100-candidate cohort, using representative both-pass rationales.",
+    "candidate_judge_prompt": "MOLECULES_GEOMETRIC_JUDGE_SYSTEM_PROMPT",
+    "controller_prompt": "MOLECULES_GEOMETRIC_CONTROLLER_PROMPT plus MOLECULES_GEOMETRIC_CORRECTION_ADDENDUM on correction attempts",
+    "independent_auditor_prompt": "MOLECULES_MOVING_FRONTIER_AUDITOR_PROMPT",
+    "llm_output_contract": "Exactly one categorical POSITIVE, NEGATIVE, or ABSTAIN label per candidate; no cardinal candidate scores, probabilities, rankings, or quotas.",
+    "candidate_card_contract": "molecule-candidate-card/1.0.0",
+    "candidate_isolation_required": true,
+    "candidate_order_randomized": true,
+    "candidate_identifiers_blinded": true,
+    "cardinal_descriptors_visible": true,
+    "numerical_logp_visible": false,
+    "docking_visible": false,
+    "learned_affinity_predictor_visible": false,
+    "learned_solubility_predictor_visible": false,
+    "internet_visible": false,
+    "external_ligand_dataset_visible": false,
+    "database_match_used_as_label": false,
+    "generator_identity_visible_to_judge": false,
+    "evidence_policy": {
+      "delivery": "All allowed evidence is precomputed once by the host and serialized into the candidate card; the LLM has no interactive tools.",
+      "interactive_tool_calls": false,
+      "missing_value_policy": "A failed or unavailable calculation is explicit null evidence with a status and reason; it is never imputed and is not automatically negative.",
+      "judge_visible_fields": [
+        "identity.status",
+        "identity.isomeric_smiles",
+        "identity.atom_mapped_smiles",
+        "identity.empirical_formula",
+        "identity.elements",
+        "identity.atom_count",
+        "identity.reason",
+        "descriptors.status",
+        "descriptors.molecular_weight_da",
+        "descriptors.formal_charge",
+        "descriptors.hydrogen_bond_donor_count",
+        "descriptors.hydrogen_bond_acceptor_count",
+        "descriptors.topological_polar_surface_area_angstrom2",
+        "descriptors.rotatable_bond_count",
+        "descriptors.aromatic_ring_count",
+        "descriptors.ring_count",
+        "functional_groups.status",
+        "functional_groups.groups",
+        "geometry.status",
+        "geometry.intramolecular_clash_count",
+        "geometry.abnormal_bond_count",
+        "geometry.aromatic_planarity_max_deviation_angstrom",
+        "geometry.reason"
+      ],
+      "always_hidden_fields": [
+        "raw_cartesian_coordinates",
+        "generator_native_tensors",
+        "generator_checkpoint_identity",
+        "candidate_source_id",
+        "GSK3B activity predictor inputs and outputs",
+        "docking inputs, scores and poses",
+        "solubility predictor inputs and outputs",
+        "numerical Crippen LogP",
+        "pharmacophore scores",
+        "labelled GSK3β ligands",
+        "experimental outcomes"
+      ]
+    },
+    "experiment_context": {
+      "generator": "FlowMol3, a pretrained all-atom flow-matching model for drug-like 3D molecules trained on GEOM-Drugs with explicit hydrogens.",
+      "representation": "Each private candidate is a checksum-bound generated graph and SDF. The judge receives only the registered textual card, never raw coordinates.",
+      "visible_computational_evidence": "Isomeric and atom-mapped SMILES, inexpensive RDKit structure descriptors excluding numerical LogP, graph-local functional-group inventory, and inexpensive 3D geometry diagnostics.",
+      "evidence_limit": "The visible card can support medicinal-chemistry hypotheses but cannot establish GSK3β binding, a pocket pose, affinity, aqueous solubility, selectivity, safety or experimental activity.",
+      "interpretation": "Use pretrained medicinal-chemistry knowledge together with all supplied card fields. Missing evidence remains unknown. Preserve the immutable final goal as long-term context without silently restoring clauses postponed by the current temporary goal."
+    }
+  },
+  "curriculum_discovery": {
+    "sample_size": 100,
+    "training_label_passes": 2,
+    "minimum_stable_positive_count": 20,
+    "minimum_stable_negative_count": 20,
+    "maximum_abstain_fraction_per_pass": 0.5,
+    "minimum_exact_agreement": 0.5
+  },
+  "heuristic_control": {
+    "monitor_working_F_every_update": true,
+    "working_F_stop_enabled": true,
+    "working_F_floor": 0.3,
+    "working_F_gain_over_p0": 0.1,
+    "working_F_consecutive_cohorts": 2
+  },
+  "geometric_control": {
+    "maximum_proposal_attempts": 4,
+    "maximum_corrections": 3,
+    "minimum_initial_broadening_gain": 0.1,
+    "minimum_enrichment": 0.1,
+    "minimum_enriched_positive_fraction": 0.5,
+    "minimum_new_goal_unlock": 0.1,
+    "maximum_updates_per_goal": 5,
+    "maximum_total_updates": 10,
+    "maximum_semantic_tightenings": 3,
+    "movement_reference": "distribution_at_source_goal_adoption",
+    "same_working_cohort_used_for_goal_selection_and_training": true,
+    "abstentions_and_disagreements_count_as_not_positive": true
+  },
+  "curriculum_loop": {
+    "maximum_alignment_rounds": 10,
+    "round_seed_stride": 1000,
+    "host_uses_only_categorical_counts": true,
+    "llm_cardinal_scores_forbidden": true
+  },
+  "candidate_judge": {
+    "provider": "Vertex Express",
+    "model": "gemini-3.7-flash",
+    "reasoning_effort": "high",
+    "chunk_size": 8,
+    "provider_order_seed": 30641,
+    "max_output_tokens": 16384,
+    "maximum_provider_calls": 1120,
+    "automatic_retries": 2,
+    "api_budget": {
+      "maximum_prompt_tokens": 16000000,
+      "maximum_output_tokens": 18350080,
+      "maximum_estimated_usd": 40.0,
+      "input_usd_per_million_tokens": 0.75,
+      "output_usd_per_million_tokens": 3.75,
+      "prompt_token_overhead_per_request": 1536
+    }
+  },
+  "curriculum_controller": {
+    "provider": "Vertex Express",
+    "model": "gemini-3.1-pro-preview",
+    "reasoning_effort": "high",
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 20,
+    "automatic_retries": 2,
+    "api_budget": {
+      "maximum_prompt_tokens": 1250000,
+      "maximum_output_tokens": 655360,
+      "maximum_estimated_usd": 15.0,
+      "input_usd_per_million_tokens": 2.0,
+      "output_usd_per_million_tokens": 12.0,
+      "prompt_token_overhead_per_request": 2048
+    }
+  },
+  "independent_auditor": {
+    "provider": "Vertex Express",
+    "model": "gemini-3.1-pro-preview",
+    "reasoning_effort": "high",
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 20,
+    "automatic_retries": 2,
+    "api_budget": {
+      "maximum_prompt_tokens": 750000,
+      "maximum_output_tokens": 655360,
+      "maximum_estimated_usd": 15.0,
+      "input_usd_per_million_tokens": 2.0,
+      "output_usd_per_million_tokens": 12.0,
+      "prompt_token_overhead_per_request": 2048
+    }
+  },
+  "transport": {
+    "request_timeout_seconds": 300,
+    "requests_per_minute_per_role": 6,
+    "maximum_operational_retries": 2
+  },
+  "fine_tuning": {
+    "kind": "flowmol3_flow_dpo_v1",
+    "implementation_status": "one_step_smoke_passed",
+    "optimized_loss_component": "FlowMol3 multi-modal flow-matching loss on coordinates, atom types, charges and bonds",
+    "reference_policy": "parent_checkpoint_per_update",
+    "pair_construction": "full_cartesian_stable_positive_x_stable_negative",
+    "maximum_pair_count": 2500,
+    "learning_rate": 1e-05,
+    "steps": 100,
+    "batch_size_pairs": 8,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size_pairs": 32,
+    "beta": 2.6,
+    "gradient_clip_norm": 0.1,
+    "seed": 31657,
+    "device": "cuda:0",
+    "maximum_relative_parameter_delta": 0.02,
+    "maximum_updates_before_fresh_evaluation": 1,
+    "checkpoint_reload_required": true,
+    "originally_frozen_state_verification_required": true
+  },
+  "final_f_continuation": {
+    "enabled": true,
+    "requires_at_least_one_curriculum_update": true,
+    "entry_uses_one_fresh_working_cohort": true,
+    "minimum_stable_positive_count": 20,
+    "minimum_stable_negative_count": 20,
+    "maximum_updates": 3,
+    "sampling_seed": 41701,
+    "fine_tuning": {
+      "kind": "flowmol3_flow_dpo_v1",
+      "optimized_loss_component": "FlowMol3 multi-modal flow-matching loss on coordinates, atom types, charges and bonds",
+      "reference_policy": "parent_checkpoint_per_update",
+      "pair_construction": "full_cartesian_stable_positive_x_stable_negative",
+      "maximum_pair_count": 2500,
+      "learning_rate": 5e-06,
+      "steps": 100,
+      "batch_size_pairs": 8,
+      "gradient_accumulation_steps": 4,
+      "effective_batch_size_pairs": 32,
+      "beta": 2.6,
+      "gradient_clip_norm": 0.1,
+      "seed": 41657,
+      "device": "cuda:0",
+      "maximum_relative_parameter_delta": 0.02
+    }
+  },
+  "fresh_sampling": {
+    "num_attempts_per_arm": 100,
+    "seeds_per_arm": 1,
+    "attempts_per_seed": 100,
+    "round_1_seeds": [
+      31701
+    ],
+    "batch_size": 8,
+    "flow_timesteps": 250,
+    "source_distribution": "released unconditional FlowMol3 GEOM-Drugs",
+    "same_native_graphs_for_parent_and_child": true,
+    "all_generation_attempts_retained_in_denominators": true
+  },
+  "checkpoint_gates": {
+    "minimum_rdkit_success_fraction": 0.25,
+    "maximum_exact_native_state_replay_fraction": 0.0,
+    "require_checkpoint_state_change": true,
+    "require_checkpoint_reload": true,
+    "require_originally_frozen_state_unchanged": true,
+    "maximum_relative_parameter_delta": 0.02,
+    "gnina_used": false
+  },
+  "evaluation": {
+    "protocol_id": "gsk3b-binding-solubility-joint-v0",
+    "role": "prospective held-out computational evaluation plan; not experimental ground truth and not yet executable",
+    "visible_to_llm": false,
+    "usable_for_training_or_curriculum_selection": false,
+    "usable_for_checkpoint_selection": false,
+    "protocol_status": "requires_frozen_thresholds_and_controls_before_scientific_execution",
+    "primary_endpoint": "fraction_of_all_raw_generation_attempts_jointly_passing_frozen_binding_solubility_and_structure_screens",
+    "binding_axis": {
+      "intended_evaluator": "GNINA",
+      "intended_receptor": "GSK3β ATP-pocket structure PDB 1Q5K",
+      "required_controls": [
+        "co-crystal-ligand redocking with a prospectively frozen pose criterion",
+        "known active and inactive/decoy discrimination checked before generated molecules",
+        "frozen box, protonation, seeds, exhaustiveness, model and score threshold"
+      ]
+    },
+    "solubility_axis": {
+      "intended_primary_evaluator": "ADMET-AI Solubility_AqSolDB",
+      "required_freeze": [
+        "exact ADMET-AI release and model identity",
+        "fixed preprocessing and failed-prediction policy",
+        "prospective aqueous-solubility threshold"
+      ]
+    },
+    "structure_axis": {
+      "intended_evaluator": "frozen RDKit and PoseBusters validity/geometry rules",
+      "all_generation_failures_retained_in_denominator": true
+    },
+    "diagnostic_baselines_not_final_evaluation": [
+      "TDC GSK3B oracle trained on ExCAPE-DB",
+      "ESOL"
+    ],
+    "final_cohorts": {
+      "arms": [
+        "unchanged_released_parent",
+        "final_adapted_checkpoint"
+      ],
+      "generation_attempts_per_arm": 100,
+      "sampling_seeds": [
+        31701
+      ],
+      "attempts_per_seed": 100
+    }
+  },
+  "recovery": {
+    "maximum_stage_attempts": 3,
+    "maximum_job_reentries": 3,
+    "preserve_failed_attempts": true,
+    "retry_only_operational_failures": true
+  },
+  "aggregate_api_budget": {
+    "maximum_paid_calls": 1163,
+    "maximum_prompt_tokens": 18015000,
+    "maximum_output_tokens": 19661568,
+    "maximum_estimated_usd": 70.0,
+    "maximum_preflight_generation_calls": 3,
+    "maximum_preflight_prompt_tokens": 15000,
+    "maximum_preflight_output_tokens": 768,
+    "maximum_preflight_estimated_usd": 0.05,
+    "conservative_candidate_judge_call_bound": 1120
+  },
+  "registered_compute_budget": {
+    "maximum_rounds": 10,
+    "maximum_generator_updates": 13,
+    "maximum_jobs": 8,
+    "maximum_parallel_jobs": 1,
+    "maximum_gpu_hours_including_final_gnina": 36.0,
+    "maximum_final_gnina_tasks": 0,
+    "maximum_gnina_tasks": 0
+  },
+  "execution_authorized": false,
+  "remaining_authorization_requirements": [
+    "fresh campaign authorization with exact API and compute ceilings"
+  ],
+  "claim_boundary": "A fresh-from-released-FlowMol3 LLM-guided GSK3β-binding-plus-solubility campaign. The LLM sees only the registered structure card and no numerical LogP, GSK3β predictor, docking result, solubility prediction, labelled ligand, generator state or experimental outcome. The mechanistic pipeline and later computational screens cannot establish biological activity, selectivity, safety, in-vivo efficacy or therapeutic success."
+}

@@ -1,0 +1,31 @@
+{
+  "analysis": "Fresh100 p0 and100 terminal, fixed35/40/25 at12/24/38. Primary terminal-minus-p0 mean heldout CPP score. Stratified by length candidate bootstrap4000 replicates seed28601, percentile95% CI. Separate HemoPI2 mean/difference/CI and fixed-threshold rates. Report invalid/missing scores without replacement, duplicates and exact/near reference matches. No claims of measured uptake, BBB transport, cytosolic escape or cargo delivery; one exploratory training seed.",
+  "baseline_reward": {
+    "commit": "4708e09d5a28cc9d843b3bf70c7d1ec93e79d881",
+    "features": "AlphabetACDEFGHIKLMNPQRSTVWY;20 AAC frequencies divided byL;400 row-major DPC frequencies divided byL-1; no sequence truncation or scaling",
+    "fit": "RandomForestClassifier(n_estimators=500,max_features=sqrt,min_samples_leaf=2,class_weight=balanced,random_state=18601,n_jobs=4); fit fixed Dataset1 only; official separate99+/99negative set for diagnostic validation only, no hyperparameter search. Class1 probability reward.",
+    "license": "MIT",
+    "model": "New AAC+DPC random forest, not claimed to be the released CellPPD classifier",
+    "negative_label_caveat": "Random sequences are presumed negatives, not assay-confirmed nonpenetrating peptides. Length38 has3 positives and0 negatives in training.",
+    "source": "https://github.com/raghavagps/CellPPD",
+    "training_data": "Dataset1:708CPP positives+708random negatives, no high/low-uptake Dataset3"
+  },
+  "final_goal": "Generate peptides with promising mammalian-cell-penetrating activity while minimizing toxicity to mammalian cells.",
+  "heldout_activity": {
+    "commit": "2d648806c241f1dc64d9e4ff9d9f4baeb28a5d1f",
+    "historical_data_caveat": "All1416 CellPPD Dataset1 reward records occur with same labels in pLM reference:1130 in training,286 in checkpoint-selection validation. Thus architecturally different and heldout from optimization, NOT data-independent. Reference length38 has13 positives/4 negatives; report length-stratified outcomes.",
+    "license": "MIT",
+    "model": "pLM4CPPs ESM2-640 CNN",
+    "preprocessing": "ReadCSV header0/index_col0, preserve5479-row order. train_test_split(X,y,test_size=.2,random_state=123) without stratification; fit MinMaxScaler on4383 training rows only and freeze. ESM2_t30_150M_UR50D evalmode layer30 mean over residues excluding BOS/EOS/padding, coordinates0..639; frozen scaler.transform; reshapeN,640,1; load_model compile=False. No retraining, no README batch-fitted StandardScaler, no threshold tuning. Raw CPP sigmoid; fixed>0.5 secondary rate.",
+    "reference_features": "embedded_data/whole_sample_dataset_esm2_t30_150M_UR50D_unified_640_dimension.csv",
+    "reference_features_sha256": "46ae00647900f261bc26aef939388d5af564b6fa80d3ce21ab2ac02202ca76c5",
+    "reference_xlsx": "embedded_data/Final_non_redundant_sequences.xlsx",
+    "reference_xlsx_sha256": "9fc289bf6da5053ebdbeb6d992c347847baf2ae0304badb1b3623aca10e5d26d",
+    "source": "https://github.com/drkumarnandan/pLM4CPPs",
+    "validation_requirement": "Verify full downloaded asset hashes (not merely LFS pointers), weight loading, frozen reference/scaler smoke tests and singleton/batch/order invariance before reading generated outcomes.",
+    "weight": "models/ESM2-640/best_model_640.h5",
+    "weight_sha256": "f14ee131ba42aa90dd90b10a077e5af5476d4b580e7e1339b15b94de9de39622"
+  },
+  "safety": "Same frozen released HemoPI2 evaluator used in anticancer; hemolysis only, not general mammalian toxicity. Scores hidden from curriculum and baselines.",
+  "validation_schedule": "Pin before adaptation; inference validation uses official references only and remains blinded to generated outcomes. If not reproducible report missing primary evaluation; no post-hoc model replacement. Baseline training and downstream scorer jobs require separate tracked submissions."
+}

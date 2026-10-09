@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "experiment_id": "PEPDFM-ACP-DIRECT-BASELINES-V1",
+  "final_goal": "Prefer peptides that appear more promising as selective direct anticancer therapeutics: plausibly active against cancer cells while minimizing nonspecific toxicity toward healthy human cells.",
+  "source_root": "../../../../..",
+  "asset_dir": ".cache/upstream/mog-dfm",
+  "expected_torch_version": "2.6.0",
+  "acp_parameters": "../assets/acp_a_proxy_parameters.json",
+  "hemolysis_parameters": "../assets/hemolysis_proxy_parameters.json",
+  "hemopi2_adapter": "../evaluation/hemopi2_rf_adapter.py",
+  "anticp2_assets": ".cache/upstream/anticp2",
+  "released_hemopi2_assets": ".cache/upstream/hemopi2/Model",
+  "released_hemopi2_overlay": ".cache/env-overlays/hemopi2-sklearn-1.3.1",
+  "endpoint_control_candidates": null,
+  "endpoint_control_candidates_sha256": null,
+  "arms": [
+    "unguided_p0",
+    "pool_tilt_acp",
+    "pool_tilt_acp_safe",
+    "local_guidance_acp",
+    "local_guidance_acp_safe"
+  ],
+  "length_counts": {
+    "12": 35,
+    "24": 40,
+    "38": 25
+  },
+  "replicate_seeds": [
+    10701,
+    10702,
+    10703
+  ],
+  "num_steps": 100,
+  "pool_multiplier": 10,
+  "beta": 1.0,
+  "local_guidance_algorithm": "Released MOG-DFM greedy single-position adaptive-hypercone heuristic. It considers only positive-improvement directions, uses the upstream accelerated jump rule, and is not exact sampling from p0 times reward.",
+  "beta_comparability": "The numeric beta=1 is frozen within each implementation but is not an equivalent strength across pool SIR and rank-normalized local guidance.",
+  "candidate_judge": {
+    "provider": "Vertex Express",
+    "model": "gemini-3.7-flash",
+    "reasoning_effort": "high",
+    "chunk_size": 25,
+    "provider_order_seed": 10717,
+    "cohort_dispatch_seed": 10719,
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 256,
+    "maximum_coverage_redispatches_per_chunk": 25,
+    "timeout_seconds": 300,
+    "requests_per_minute": 12,
+    "system_prompt": "V4_JUDGE_SYSTEM_PROMPT",
+    "system_prompt_sha256": "78d7cd3f14999601d8ad1852422f15f3c32a863e614e0e956087d32a518b405f",
+    "raw_sequences_only": true,
+    "api_budget": {
+      "maximum_prompt_tokens": 3000000,
+      "maximum_output_tokens": 8388608,
+      "maximum_estimated_usd": 40.0,
+      "input_usd_per_million_tokens": 0.75,
+      "output_usd_per_million_tokens": 3.75,
+      "prompt_token_overhead_per_request": 1536,
+      "pricing_basis": "Frozen Gemini 3.7 Flash campaign accounting rate through the registered deadline"
+    }
+  },
+  "pinned_files": {
+    "domains/peptides/model.py": "bd507379f75109438edb9f67d52599de93227f7f9815958831adc7155b9821db",
+    "domains/peptides/guidance.py": "b5cb4b3350a054782cf92305d1474d4d42d2de38286cb2b117121b3c3a38e262",
+    "domains/peptides/judgments.py": "b9c14ac29abc39424fb22ce59b31b7657665a9d421de588837384f4152c7ff0d",
+    "adm/preferences/gemini_vertex.py": "a3e7be393f76e565bb714bef02ef0a78a162d318d8fe5570cf6843279eed839a",
+    "domains/peptides/anticancer/baselines/assets/acp_a_proxy_parameters.json": "5c3798a641dc8f1e113fbdec0df2b0e79390fcfd3113eccdedc6af3020fe9922",
+    "domains/peptides/anticancer/baselines/assets/hemolysis_proxy_parameters.json": "a52e43ea1888b4e95258d59a7916447468b3388a820214d3c025e567c2d72e7a",
+    "domains/peptides/anticancer/baselines/evaluation/hemopi2_rf_adapter.py": "ff0d8d82caab9c68f642400467f730d1a47f3512dbf0383ae3243d13eefafc93"
+  },
+  "asset_pinned_files": {
+    "flow_matching/solver/discrete_solver.py": "e881ee50d5532c16fcbde76d5b26e11633212bd3933e0b424c52678c46d8d4df",
+    "flow_matching/utils/multi_guidance.py": "7256572cbc93c290e6a2466c6c46c9869d0922019a2b729a7e593f5643cb96ce",
+    "flow_matching/utils/categorical_sampler.py": "b2c9e88f0068dd7e01ca94374d1668f516f3e4e4dede3942412f258393fec013",
+    "ckpt/peptide/cnn_epoch200_lr0.0001_embed512_hidden256_loss3.1051.ckpt": "0b7040a7f28bc7a96fa99a809b001236d5215ec520aa42d8a5a704adcd9aa442"
+  },
+  "anticp2_pinned_files": {
+    "dpc_extra_model": "b37028ba1b8b6c26b7ac332f98b149ca8698892f8a13e10cae1c397b7e803cd6",
+    "aac_extra_model": "d0a1f19fc088ca787fd12eee7dd73d5b9e9de5aafd6949451087141e56e47124"
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "experiment_id": "PEPDFM-E2E-ANTICANCER-DPO-V1",
+  "final_goal": "Prefer peptides that appear more promising as selective direct anticancer therapeutics: plausibly active against cancer cells while minimizing nonspecific toxicity toward healthy human cells.",
+  "candidate_pool": {
+    "path": "${PEPDFM_E2E_OUTPUT_ROOT}/p0/candidate_pool.jsonl",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "candidate_count": 100,
+    "length_counts": {},
+    "generator": "released unconditional PepDFM p0",
+    "generator_checkpoint_sha256": "0b7040a7f28bc7a96fa99a809b001236d5215ec520aa42d8a5a704adcd9aa442"
+  },
+  "campaign_length_policy": {
+    "path": "${PEPDFM_E2E_OUTPUT_ROOT}/campaign_length_policy.json",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "length_counts": {}
+  },
+  "prompt_protocol": {
+    "version": "geometric-semantic-reachability-v13",
+    "geometric_contract": "Pos(F) subset Pos(G_m) subset ... subset Pos(G_2) subset Pos(G_1); p_k is trained on G_k until G_k is enriched, then the controller proposes only the smallest newly reachable tightening",
+    "initial_goal_rule": "Choose the weakest scientifically meaningful first rung that is mixed and trainable on p0; postpone most final-goal efficacy, selectivity, toxicity, and developability clauses.",
+    "correction_rule": "One initial proposal plus at most three material corrections on the same 100-candidate cohort.",
+    "candidate_judge_prompt": "GEOMETRIC_V13_JUDGE_SYSTEM_PROMPT",
+    "controller_prompt": "GEOMETRIC_V13_CONTROLLER_PROMPT plus GEOMETRIC_V13_CORRECTION_ADDENDUM on correction attempts",
+    "independent_auditor_prompt": "MOVING_FRONTIER_AUDITOR_PROMPT",
+    "pre_p0_length_prompt": "PRE_P0_LENGTH_POLICY_SYSTEM_PROMPT",
+    "cardinal_predictor_outputs_visible": false,
+    "target_specific_predictor_visible": false,
+    "internet_visible": false,
+    "labelled_reference_context_visible": false,
+    "external_peptide_dataset_visible": false,
+    "database_match_used_as_label": false,
+    "llm_cardinal_scores_forbidden": true,
+    "experiment_context": {
+      "generator": "PepDFM, a pretrained variable-length peptide flow-matching model. The host chooses sequence length before unconditional sampling.",
+      "representation": "Each candidate is a novel computational linear peptide represented N-terminus to C-terminus in canonical one-letter amino-acid code.",
+      "sampling": "One LLM-selected 100-sample length mixture is frozen before p0 and reused for every p_k and parent-child comparison.",
+      "visible_computational_evidence": "The complete sequence is primary. Deterministic sequence arithmetic and qualitative p0-frozen information related to non-hemolysis, non-fouling, solubility, and half-life are fallible secondary context; cardinal outputs are hidden.",
+      "external_evidence": "No labelled peptide dataset, reference peptide, database lookup, internet retrieval, or target-specific anticancer predictor is supplied.",
+      "interpretation": "Use pretrained peptide-domain knowledge, the complete sequence, target-independent qualitative evidence, and current generator reachability. Apply every operative clause of the current goal, abstain only for genuinely insufficient or conflicting evidence, preserve novelty, and keep the immutable final goal as long-term context without silently restoring deferred clauses."
+    }
+  },
+  "curriculum_discovery": {
+    "sample_size": 100,
+    "training_label_passes": 2,
+    "minimum_stable_positive_count": 20,
+    "minimum_stable_negative_count": 20,
+    "maximum_abstain_fraction_per_pass": 0.5,
+    "minimum_exact_agreement": 0.5
+  },
+  "geometric_control": {
+    "maximum_proposal_attempts": 4,
+    "maximum_corrections": 3,
+    "minimum_initial_broadening_gain": 0.1,
+    "minimum_enrichment": 0.1,
+    "minimum_enriched_positive_fraction": 0.6,
+    "minimum_new_goal_unlock": 0.1,
+    "maximum_updates_per_goal": 5,
+    "maximum_total_updates": 10,
+    "maximum_semantic_tightenings": 3,
+    "movement_reference": "distribution_at_source_goal_adoption",
+    "same_working_cohort_used_for_goal_selection_and_training": true,
+    "abstentions_and_disagreements_count_as_not_positive": true
+  },
+  "curriculum_loop": {
+    "maximum_alignment_rounds": 10,
+    "round_seed_stride": 1000,
+    "host_uses_only_categorical_counts": true,
+    "llm_cardinal_scores_forbidden": true
+  },
+  "candidate_judge": {
+    "provider": "Vertex Express",
+    "model": "gemini-3.7-flash",
+    "reasoning_effort": "high",
+    "chunk_size": 25,
+    "provider_order_seed": 8471,
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 360,
+    "automatic_retries": 0,
+    "api_budget": {
+      "maximum_prompt_tokens": 5000000,
+      "maximum_output_tokens": 11796480,
+      "maximum_estimated_usd": 55.0,
+      "input_usd_per_million_tokens": 0.75,
+      "output_usd_per_million_tokens": 3.75,
+      "pricing_basis": "Vertex AI Gemini 3.7 Flash introductory Standard PayGo rates valid through 2026-12-31; experiment deadline precedes that date.",
+      "prompt_token_overhead_per_request": 1536
+    }
+  },
+  "curriculum_controller": {
+    "provider": "Vertex Express",
+    "model": "gemini-3.1-pro-preview",
+    "reasoning_effort": "high",
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 20,
+    "automatic_retries": 0,
+    "api_budget": {
+      "maximum_prompt_tokens": 1250000,
+      "maximum_output_tokens": 655360,
+      "maximum_estimated_usd": 13.0,
+      "input_usd_per_million_tokens": 2.0,
+      "output_usd_per_million_tokens": 12.0,
+      "pricing_basis": "Vertex AI Gemini 3.1 Pro Preview Standard PayGo rates for requests with at most 200K input tokens.",
+      "prompt_token_overhead_per_request": 2048
+    }
+  },
+  "independent_auditor": {
+    "provider": "Vertex Express",
+    "model": "gemini-3.1-pro-preview",
+    "reasoning_effort": "high",
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 20,
+    "automatic_retries": 0,
+    "api_budget": {
+      "maximum_prompt_tokens": 750000,
+      "maximum_output_tokens": 655360,
+      "maximum_estimated_usd": 11.0,
+      "input_usd_per_million_tokens": 2.0,
+      "output_usd_per_million_tokens": 12.0,
+      "pricing_basis": "Vertex AI Gemini 3.1 Pro Preview Standard PayGo rates for requests with at most 200K input tokens.",
+      "prompt_token_overhead_per_request": 2048
+    }
+  },
+  "transport": {
+    "request_timeout_seconds": 300,
+    "requests_per_minute_per_role": 3
+  },
+  "fine_tuning": {
+    "kind": "all_cartesian_pairs_pepdfm_flow_dpo",
+    "holdout_fraction": 0.0,
+    "learning_rate": 0.00001,
+    "steps": 100,
+    "batch_size": 32,
+    "negative_alpha": 0.0,
+    "beta": 2.6,
+    "reference_policy": "parent_checkpoint_per_update",
+    "pair_construction": "full_cartesian_stable_positive_x_stable_negative",
+    "pair_schedule": "deterministic_shuffled_epochs_without_replacement",
+    "corruption_coupling": "same_policy_reference_corruption_per_sequence",
+    "loss_kind": "diffusion_dpo_logistic_on_generalized_kl_surrogate",
+    "gradient_clip_norm": 0.1,
+    "epsilon": 0.001,
+    "seed": 8427,
+    "device": "cuda:0"
+  },
+  "fresh_sampling": {
+    "num_samples_per_arm": 100,
+    "length_counts_per_arm": {},
+    "num_steps": 100,
+    "seed": 8439,
+    "batch_size": 60,
+    "source_distribution": "uniform",
+    "predictor_batch_size": 16,
+    "evidence_banding_reference": "frozen_p0",
+    "frozen_evidence_reference": {
+      "path": "${PEPDFM_E2E_OUTPUT_ROOT}/p0/frozen_evidence_reference_private.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "checkpoint_gates": {
+    "minimum_valid_fraction": 1.0,
+    "minimum_unique_valid_fraction": 1.0,
+    "maximum_exact_replay_match_fraction": 0.0,
+    "maximum_overlap_with_prior_distribution_fraction": 0.0,
+    "require_checkpoint_state_change": true,
+    "minimum_novel_vs_original_pool_fraction": 0.95,
+    "minimum_diversity_ratio_vs_frozen": 0.9,
+    "maximum_amino_acid_jsd_vs_frozen": 0.08,
+    "require_positive_holdout_loss_decrease": false,
+    "require_negative_minus_positive_margin_non_decrease": false
+  },
+  "evaluation": {
+    "primary_metric": "completed_geometric_semantic_transition_count",
+    "success_transition_count": 2,
+    "independent_generated_validation_cohort": false,
+    "working_cohort_size": 100,
+    "same_cohort_selection_and_training": true,
+    "cardinal_scores_used": false,
+    "report_raw_and_per_length_categorical_rates": true,
+    "external_dataset_or_reference_metrics_used": false,
+    "claim_is_exploratory_and_not_biological_validation": true
+  },
+  "aggregate_api_budget": {
+    "maximum_paid_calls": 406,
+    "maximum_prompt_tokens": 7015000,
+    "maximum_output_tokens": 13500000,
+    "maximum_estimated_usd": 80.0,
+    "maximum_count_tokens_probes": 0,
+    "maximum_preflight_allocations": 1,
+    "maximum_preflight_generation_calls": 3,
+    "maximum_preflight_prompt_tokens": 15000,
+    "maximum_preflight_output_tokens": 768,
+    "maximum_preflight_estimated_usd": 0.05,
+    "preflight_input_usd_per_million_tokens": 2.0,
+    "preflight_output_usd_per_million_tokens": 12.0,
+    "conservative_candidate_judge_call_bound": 360
+  },
+  "registered_compute_budget": {
+    "max_jobs": 1,
+    "max_gpu_hours": 80.0,
+    "max_parallel_jobs": 1
+  },
+  "claim_boundary": "One fresh-from-released-PepDFM exploratory categorical semantic-reachability run using a generalized-KL flow-DPO surrogate, not exact sequence-likelihood DPO. No prior experiment artifact is reused. The same adaptive working cohort is used for selection and training. No labelled peptide dataset, reference peptide, target-specific anticancer predictor, internet retrieval, independent validation, biological-activity claim, or DPO-superiority claim."
+}

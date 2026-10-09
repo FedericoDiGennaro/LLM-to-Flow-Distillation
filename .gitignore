@@ -1,0 +1,24 @@
+# Environments, build products, and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.pixi/
+.cache/
+*.egg-info/
+build/
+dist/
+# Credentials stay outside version control
+.env
+.env.*
+api_key.env
+*.pem
+# Generated research artifacts
+outputs/
+runs/
+checkpoints/
+*.pt
+*.ckpt
+*.safetensors
+*.log
+core_*

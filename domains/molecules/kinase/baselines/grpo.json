@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "experiment_id": "MOLECULES-KINASE-GRPO-BASELINE-V1",
+  "execution_profile": "single_gpu_baseline",
+  "run_gnina_after_campaign": false,
+  "campaign_status": "configured",
+  "final_goal": "Generate neutral, connected small molecules for a kinase-focused discovery campaign that contain a six-membered aza-aromatic ring bearing a free primary amino group on a ring carbon adjacent to a pyridine-like ring nitrogen, and a distinct fully saturated ring containing a free secondary amine. The saturated amine-containing ring need not be carbon-linked to the aza-aromatic ring.",
+  "candidate_pool": {
+    "path": "${MOLECULES_E2E_OUTPUT_ROOT}/p0/candidate_pool.jsonl",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "candidate_count": 512,
+    "generator": "released unconditional FlowMol3 GEOM-Drugs p0",
+    "generator_repository": "https://github.com/Dunni3/FlowMol.git",
+    "generator_revision": "40b42309da7247013a6254bbf567f3a8ef8d97c7",
+    "generator_tag": "v3.1.0",
+    "generator_checkpoint": "flowmol3",
+    "seed": 915101
+  },
+  "prompt_protocol": {
+    "candidate_card_contract": "molecule-candidate-card/1.0.0",
+    "candidate_identifiers_blinded": true,
+    "candidate_isolation_required": true,
+    "candidate_judge_prompt": "MOLECULES_GEOMETRIC_JUDGE_SYSTEM_PROMPT",
+    "candidate_order_randomized": true,
+    "cardinal_descriptors_visible": true,
+    "controller_prompt": "MOLECULES_GEOMETRIC_CONTROLLER_PROMPT plus MOLECULES_GEOMETRIC_CORRECTION_ADDENDUM on correction attempts",
+    "correction_rule": "One initial proposal plus at most three material corrections on the same 128-candidate cohort.",
+    "database_match_used_as_label": false,
+    "docking_visible": false,
+    "evidence_policy": {
+      "always_hidden_fields": [
+        "raw_cartesian_coordinates",
+        "generator_native_tensors",
+        "generator_checkpoint_identity",
+        "candidate_source_id",
+        "GNINA inputs and outputs",
+        "CNNAffinity",
+        "pose RMSD",
+        "docking scores",
+        "pharmacophore scores",
+        "labelled kinase ligands",
+        "experimental outcomes"
+      ],
+      "delivery": "All allowed evidence is precomputed once by the host and serialized into the candidate card; the LLM has no interactive tools.",
+      "interactive_tool_calls": false,
+      "judge_visible_fields": [
+        "identity.status",
+        "identity.isomeric_smiles",
+        "identity.atom_mapped_smiles",
+        "identity.empirical_formula",
+        "identity.elements",
+        "identity.atom_count",
+        "identity.reason",
+        "descriptors.status",
+        "descriptors.molecular_weight_da",
+        "descriptors.formal_charge",
+        "descriptors.hydrogen_bond_donor_count",
+        "descriptors.hydrogen_bond_acceptor_count",
+        "descriptors.topological_polar_surface_area_angstrom2",
+        "descriptors.rotatable_bond_count",
+        "descriptors.aromatic_ring_count",
+        "descriptors.ring_count",
+        "descriptors.crippen_logp",
+        "functional_groups.status",
+        "functional_groups.groups",
+        "geometry.status",
+        "geometry.intramolecular_clash_count",
+        "geometry.abnormal_bond_count",
+        "geometry.aromatic_planarity_max_deviation_angstrom",
+        "geometry.reason"
+      ],
+      "missing_value_policy": "A failed or unavailable calculation is explicit null evidence with a status and reason; it is never imputed and is not automatically negative."
+    },
+    "experiment_context": {
+      "evidence_limit": "Structure, polarity and geometry can support hypotheses about chemical viability and lipophilicity but do not establish kinase activity, pose, affinity, selectivity, or experimental activity.",
+      "generator": "FlowMol3, a pretrained all-atom flow-matching model for drug-like 3D molecules trained on GEOM-Drugs with explicit hydrogens.",
+      "interpretation": "Use pretrained medicinal-chemistry knowledge together with all supplied card fields. Missing evidence remains unknown. Preserve the immutable final goal as long-term context without silently restoring clauses postponed by the current temporary goal.",
+      "representation": "Each private candidate is a checksum-bound generated graph and SDF. The judge receives only the registered textual card, never raw coordinates.",
+      "visible_computational_evidence": "Isomeric and atom-mapped SMILES, cheap RDKit descriptors, graph-local functional-group inventory, and cheap 3D geometry diagnostics."
+    },
+    "external_ligand_dataset_visible": false,
+    "generator_identity_visible_to_judge": false,
+    "geometric_contract": "Pos(F) subset Pos(G_m) subset ... subset Pos(G_2) subset Pos(G_1); the generator is updated on G_k until G_k is enriched, then the controller may propose only the smallest newly reachable semantic tightening.",
+    "independent_auditor_prompt": "MOLECULES_MOVING_FRONTIER_AUDITOR_PROMPT",
+    "initial_goal_rule": "Choose one weak but scientifically meaningful precursor toward the immutable kinase-focused neutral-small-molecule goal that is reachable and discriminative on p0. Do not encode descriptor cutoffs or claim kinase binding or screening success from SMILES or geometry. Do not choose a near-universal GEOM-Drugs property such as any aromatic ring; the working cohort must retain a substantial negative set.",
+    "internet_visible": false,
+    "learned_affinity_predictor_visible": false,
+    "llm_output_contract": "Exactly one categorical POSITIVE, NEGATIVE, or ABSTAIN label per candidate; no cardinal candidate scores, probabilities, rankings, or quotas.",
+    "semantic_goal_module": "domains.molecules.kinase.teacher",
+    "version": "molecules-kinase-semantic-reachability-v1",
+    "numerical_logp_visible": true
+  },
+  "curriculum_discovery": {
+    "maximum_abstain_fraction_per_pass": 0.5,
+    "minimum_exact_agreement": 0.6,
+    "minimum_stable_negative_count": 32,
+    "minimum_stable_positive_count": 2,
+    "sample_size": 128,
+    "training_label_passes": 2
+  },
+  "heuristic_control": {
+    "monitor_working_F_every_update": true,
+    "working_F_stop_enabled": false,
+    "working_F_floor": 0.3,
+    "working_F_gain_over_p0": 0.1,
+    "working_F_consecutive_cohorts": 2
+  },
+  "geometric_control": {
+    "abstentions_and_disagreements_count_as_not_positive": true,
+    "goal_pass_policy": {
+      "kind": "absolute_positive_fraction_only",
+      "strictly_greater_than": 0.2
+    },
+    "maximum_corrections": 3,
+    "maximum_proposal_attempts": 4,
+    "maximum_semantic_tightenings": 20,
+    "maximum_total_updates": 20,
+    "maximum_updates_per_goal": 20,
+    "minimum_enriched_positive_fraction": 0.2,
+    "minimum_enrichment": 0.1,
+    "minimum_initial_broadening_gain": 0.1,
+    "minimum_new_goal_unlock": 0.1,
+    "movement_reference": "distribution_at_source_goal_adoption",
+    "same_working_cohort_used_for_goal_selection_and_training": true
+  },
+  "curriculum_loop": {
+    "maximum_alignment_rounds": 20,
+    "round_seed_stride": 1000,
+    "host_uses_only_categorical_counts": true,
+    "llm_cardinal_scores_forbidden": true
+  },
+  "candidate_judge": {
+    "api_budget": {
+      "input_usd_per_million_tokens": 0.75,
+      "maximum_estimated_usd": 280.0,
+      "maximum_output_tokens": 104857600,
+      "maximum_prompt_tokens": 91428572,
+      "output_usd_per_million_tokens": 3.75,
+      "prompt_token_overhead_per_request": 1536
+    },
+    "automatic_retries": 0,
+    "chunk_size": 16,
+    "max_output_tokens": 32768,
+    "maximum_coverage_redispatches_per_chunk": 16,
+    "maximum_provider_calls": 6800,
+    "model": "gemini-3.7-flash",
+    "provider": "Vertex Express",
+    "provider_order_seed": 915141,
+    "reasoning_effort": "high"
+  },
+  "curriculum_controller": {
+    "api_budget": {
+      "input_usd_per_million_tokens": 2.0,
+      "maximum_estimated_usd": 60.0,
+      "maximum_output_tokens": 2621440,
+      "maximum_prompt_tokens": 5000000,
+      "output_usd_per_million_tokens": 12.0,
+      "prompt_token_overhead_per_request": 2048
+    },
+    "automatic_retries": 0,
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 80,
+    "model": "gemini-3.1-pro-preview",
+    "provider": "Vertex Express",
+    "reasoning_effort": "high"
+  },
+  "independent_auditor": {
+    "api_budget": {
+      "input_usd_per_million_tokens": 2.0,
+      "maximum_estimated_usd": 60.0,
+      "maximum_output_tokens": 2621440,
+      "maximum_prompt_tokens": 3000000,
+      "output_usd_per_million_tokens": 12.0,
+      "prompt_token_overhead_per_request": 2048
+    },
+    "automatic_retries": 0,
+    "max_output_tokens": 32768,
+    "maximum_provider_calls": 80,
+    "model": "gemini-3.1-pro-preview",
+    "provider": "Vertex Express",
+    "reasoning_effort": "high"
+  },
+  "transport": {
+    "request_timeout_seconds": 300,
+    "requests_per_minute_per_role": 6,
+    "maximum_operational_retries": 2
+  },
+  "fine_tuning": {
+    "kind": "flowmol3_flow_dpo_v1",
+    "implementation_status": "flowmol3_adapter",
+    "optimized_loss_component": "FlowMol3 multi-modal flow-matching loss on coordinates, atom types, charges and bonds",
+    "reference_policy": "parent_checkpoint_per_update",
+    "pair_construction": "full_cartesian_stable_positive_x_stable_negative_capped",
+    "maximum_pair_count": 1024,
+    "learning_rate": 5e-06,
+    "steps": 150,
+    "batch_size_pairs": 8,
+    "gradient_accumulation_steps": 1,
+    "effective_batch_size_pairs": 8,
+    "beta": 1.0,
+    "gradient_clip_norm": 1.0,
+    "seed": 915157,
+    "device": "cuda:0",
+    "maximum_relative_parameter_delta": 0.004,
+    "maximum_updates_before_fresh_evaluation": 1,
+    "checkpoint_reload_required": true,
+    "originally_frozen_state_verification_required": true
+  },
+  "final_f_continuation": {
+    "enabled": false,
+    "requires_at_least_one_curriculum_update": true,
+    "entry_uses_one_fresh_working_cohort": true,
+    "minimum_stable_positive_count": 2,
+    "minimum_stable_negative_count": 32,
+    "maximum_updates": 0,
+    "sampling_seed": 41701,
+    "fine_tuning": {
+      "kind": "flowmol3_flow_dpo_v1",
+      "implementation_status": "flowmol3_adapter",
+      "optimized_loss_component": "FlowMol3 multi-modal flow-matching loss on coordinates, atom types, charges and bonds",
+      "reference_policy": "parent_checkpoint_per_update",
+      "pair_construction": "full_cartesian_stable_positive_x_stable_negative_capped",
+      "maximum_pair_count": 1024,
+      "learning_rate": 5e-06,
+      "steps": 150,
+      "batch_size_pairs": 8,
+      "gradient_accumulation_steps": 1,
+      "effective_batch_size_pairs": 8,
+      "beta": 1.0,
+      "gradient_clip_norm": 1.0,
+      "seed": 915157,
+      "device": "cuda:0",
+      "maximum_relative_parameter_delta": 0.004,
+      "maximum_updates_before_fresh_evaluation": 1,
+      "checkpoint_reload_required": true,
+      "originally_frozen_state_verification_required": true
+    }
+  },
+  "fresh_sampling": {
+    "all_generation_attempts_retained_in_denominators": true,
+    "attempts_per_seed": 512,
+    "batch_size": 8,
+    "flow_timesteps": 250,
+    "independent_child_seed_offset": 1000003,
+    "num_attempts_per_arm": 512,
+    "round_1_seeds": [
+      915201
+    ],
+    "same_native_graphs_for_parent_and_child": true,
+    "seeds_per_arm": 1,
+    "source_distribution": "released unconditional FlowMol3 GEOM-Drugs"
+  },
+  "checkpoint_gates": {
+    "gnina_used": false,
+    "maximum_exact_native_state_replay_fraction": 0.0,
+    "maximum_relative_parameter_delta": 0.004,
+    "minimum_rdkit_success_fraction": 0.25,
+    "require_checkpoint_reload": true,
+    "require_checkpoint_state_change": true,
+    "require_originally_frozen_state_unchanged": true
+  },
+  "evaluation": {
+    "visible_to_llm": false,
+    "usable_for_training_or_curriculum_selection": false,
+    "usable_for_checkpoint_selection": false,
+    "role": "post-generation computational evaluation",
+    "evaluators": [
+      "structural_goal_binary"
+    ]
+  },
+  "recovery": {
+    "maximum_stage_attempts": 3,
+    "maximum_job_reentries": 3,
+    "preserve_failed_attempts": true,
+    "retry_only_operational_failures": true
+  },
+  "aggregate_api_budget": {
+    "conservative_candidate_judge_call_bound": 6800,
+    "maximum_estimated_usd": 0,
+    "maximum_output_tokens": 0,
+    "maximum_paid_calls": 0,
+    "maximum_preflight_estimated_usd": 0.05,
+    "maximum_preflight_generation_calls": 0,
+    "maximum_preflight_output_tokens": 768,
+    "maximum_preflight_prompt_tokens": 15000,
+    "maximum_prompt_tokens": 0
+  },
+  "registered_compute_budget": {
+    "maximum_final_gnina_tasks": 0,
+    "maximum_generator_updates": 1,
+    "maximum_gnina_tasks": 0,
+    "maximum_gpu_hours_including_final_gnina": 48.0,
+    "maximum_jobs": 20,
+    "maximum_parallel_jobs": 1,
+    "maximum_per_round_gnina_tasks": 512,
+    "maximum_rounds": 1
+  },
+  "execution_authorized": false,
+  "remaining_authorization_requirements": [
+    "fresh campaign authorization with exact API and compute ceilings"
+  ],
+  "claim_boundary": "Reward-based FlowMol3 comparison; the reward is hidden from the LLM teacher.",
+  "preference_source": "kinase_link_relaxed_binary_prompt_exact_v1",
+  "kinase_reward": {
+    "reward_floor": 0.0,
+    "minimum_positive_count": 2,
+    "minimum_negative_count": 2,
+    "positive_count": 2,
+    "negative_count": 2,
+    "visible_to_llm": false,
+    "usable_as_held_out_evaluator": false
+  },
+  "flowgrpo": {
+    "algorithm": "flow_grpo_ode_to_sde_v1",
+    "rollout_count": 512,
+    "rollout_batch_size": 8,
+    "group_size": 32,
+    "transition_count": 10,
+    "noise_level": 0.7,
+    "categorical_stochasticity": 8.0,
+    "rollout_seed": 73601,
+    "training_seed": 73651,
+    "training_batch_size": 8,
+    "inner_epochs": 1,
+    "learning_rate": 5e-06,
+    "weight_decay": 0.0001,
+    "clip_range": 0.01,
+    "kl_beta": 0.01,
+    "advantage_epsilon": 0.0001,
+    "advantage_clip_max": 5.0,
+    "gradient_clip_norm": 1.0,
+    "maximum_initial_ratio_error": 0.0005,
+    "maximum_relative_parameter_delta": 0.02
+  },
+  "adaptation_method": "flow_grpo_ode_to_sde_v1",
+  "algorithm": "flow_grpo_ode_to_sde_v1"
+}

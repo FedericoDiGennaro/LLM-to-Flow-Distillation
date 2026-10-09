@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "paper_goal": 5,
+  "appendix": "D.2.3",
+  "run": "kinase-ltfd-linkrelaxed-p020-x20-05",
+  "reported_round": 6,
+  "checkpoint_sha256": "052bc5e228f5f9241511281f2215587dea68f2929a0952db94ca4aa8e00c2c8a",
+  "curriculum": [
+    {
+      "round": 1,
+      "goal": "Generate neutral, connected small molecules that contain at least one aromatic heterocycle.",
+      "goal_index": 1,
+      "p_G": {
+        "child": 0.552734375,
+        "child_judgment": "G01-child-development",
+        "parent": 0.470703125,
+        "parent_judgment": "G01-parent-development"
+      },
+      "p_F": {
+        "child": 0.0,
+        "child_judgment": "F01-child-development",
+        "parent": 0.0,
+        "parent_judgment": "F01-parent-development"
+      },
+      "enriched": true,
+      "round_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-01/round_result.json",
+        "sha256": "29823e4e3e0c2b15100006417f111daf67f0d80455bcf9d0419e64054fea7fab"
+      },
+      "training_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-01/update/training_result.json",
+        "sha256": "212e7e96f10c8cdb866a85055161b07a1bab28d481b012ce8e3fba12558dc277"
+      },
+      "parent_checkpoint_sha256": "0e949b56b54c1d2fcbded4f0c9857bfd33dbde86bcc9db2f82572628f7f9f5b5",
+      "child_checkpoint_sha256": "0ff59acdbf8b14b99cc082e8d0e8728715b3ed2af9edeee83fc07c5ccc750aea",
+      "judgments": [
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G01-child-development/stable_summary.json",
+          "sha256": "400e2a955cddcb9bd451b3b792ac35891098aa806a0f329ddb61029ca0f569f1"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G01-parent-development/stable_summary.json",
+          "sha256": "6e88b4fd4457dae6633c8328ef55953f545cf9a72e49a0e660a1a6c1523a0637"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F01-child-development/stable_summary.json",
+          "sha256": "02b00fb0c357b65babd00f8557a1058328a9a7877263d4d14a3b2f3ac731aa45"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F01-parent-development/stable_summary.json",
+          "sha256": "483b4748972926c0a9bcd71d22f0f8aaf701c855de2dd51d05393ca5f54ed597"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "goal": "Generate neutral, connected small molecules that contain at least one six-membered aza-aromatic ring.",
+      "goal_index": 2,
+      "p_G": {
+        "child": 0.216796875,
+        "child_judgment": "G02-child-development",
+        "parent": 0.18359375,
+        "parent_judgment": "G02-parent-development"
+      },
+      "p_F": {
+        "child": 0.0,
+        "child_judgment": "F02-child-development",
+        "parent": 0.0,
+        "parent_judgment": "F02-parent-development"
+      },
+      "enriched": true,
+      "round_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-02/round_result.json",
+        "sha256": "7399bcdc5e009b5e226b77131bead594494739df65b4afaba55132e19a55953b"
+      },
+      "training_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-02/update/training_result.json",
+        "sha256": "ab05c4c23a68e3eff734d3236e144def013be1a0ae28b188973ed8a3de9636f5"
+      },
+      "parent_checkpoint_sha256": "0ff59acdbf8b14b99cc082e8d0e8728715b3ed2af9edeee83fc07c5ccc750aea",
+      "child_checkpoint_sha256": "d587aea464135e0205783b111cc71da7bb46c54e615115393cf1c828d6934b86",
+      "judgments": [
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G02-child-development/stable_summary.json",
+          "sha256": "049fd794bb65ed6f7e31bc903ee237694090051c8de29178eb181df4feb991a2"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G02-parent-development/stable_summary.json",
+          "sha256": "4f91197f8012dfb7aac8738f9256b7ff7c921186d833ef9f94f7c96a42eb4d74"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F02-child-development/stable_summary.json",
+          "sha256": "203d86627837061984c330de3b13e55f21b104c756561cd1736e22ad598026dd"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F02-parent-development/stable_summary.json",
+          "sha256": "267c5bc81589e5427452a0154accda47dacd3683a638dd1345978c23b79a1793"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "goal": "Generate neutral, connected small molecules that contain at least one six-membered aza-aromatic ring and at least one free primary or secondary amine.",
+      "goal_index": 3,
+      "p_G": {
+        "child": 0.068359375,
+        "child_judgment": "G03-child-development",
+        "parent": 0.03515625,
+        "parent_judgment": "G03-parent-development"
+      },
+      "p_F": {
+        "child": 0.0,
+        "child_judgment": "F03-child-development",
+        "parent": 0.0,
+        "parent_judgment": "F03-parent-development"
+      },
+      "enriched": false,
+      "round_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-03/round_result.json",
+        "sha256": "1c58d126f7965368ded448f81aa8c0b8913e56f90e4f2d8c3eed19eb19e2d018"
+      },
+      "training_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-03/update/training_result.json",
+        "sha256": "32167624a61bf1f3912ef53aa09adfefa47db96deb1557c620ccbeaea8cce98d"
+      },
+      "parent_checkpoint_sha256": "d587aea464135e0205783b111cc71da7bb46c54e615115393cf1c828d6934b86",
+      "child_checkpoint_sha256": "1b31ecdf7df978c9937248d882996cb111adff68ccbf3e9cbc04b38dd5fa6a76",
+      "judgments": [
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G03-child-development/stable_summary.json",
+          "sha256": "4968c9891c111f4a884d32700161d4c1f8c8fb52fc1dccd284cebab249ff2ba7"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G03-parent-development/stable_summary.json",
+          "sha256": "73194dc28a484fff037ae27dfa1d2fa80da5d18a393e956831d959a0005f3faa"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F03-child-development/stable_summary.json",
+          "sha256": "b8168249fe66ebdda70be890a35e18d152387cfa59d2335d853fe42a4f3b85e4"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F03-parent-development/stable_summary.json",
+          "sha256": "d9677515b5e937bee3cfa59955a33d397f76792aa6be5642b417f0639e2d7205"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "goal": "Generate neutral, connected small molecules that contain at least one six-membered aza-aromatic ring and at least one free primary or secondary amine.",
+      "goal_index": 3,
+      "p_G": {
+        "child": 0.072265625,
+        "child_judgment": "G04-child-development",
+        "parent": 0.068359375,
+        "parent_judgment": "G04-parent-development"
+      },
+      "p_F": {
+        "child": 0.0,
+        "child_judgment": "F04-child-development",
+        "parent": 0.0,
+        "parent_judgment": "F04-parent-development"
+      },
+      "enriched": false,
+      "round_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-04/round_result.json",
+        "sha256": "64c1edbf13699d6929681486b05559f311e4122a9c104e8bfc166760f57c6691"
+      },
+      "training_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-04/update/training_result.json",
+        "sha256": "55e38b675bbeaeca99489a0fafa7c205162a5e466bb2811611a15b777ff5e3a5"
+      },
+      "parent_checkpoint_sha256": "1b31ecdf7df978c9937248d882996cb111adff68ccbf3e9cbc04b38dd5fa6a76",
+      "child_checkpoint_sha256": "5384b19b86751fef96e7336cf5f2dca1870ea1eb6cacc8c315c8ed32dcb72287",
+      "judgments": [
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G04-child-development/stable_summary.json",
+          "sha256": "35afeb159a606d2145fed7c9eb61d6a3e1e60ae0f3879d80f8af652ce3042a12"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G04-parent-development/stable_summary.json",
+          "sha256": "05939d73d4dcee293eab3f4209ab34573e18096efe8a2044fef85370d0bb185f"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F04-child-development/stable_summary.json",
+          "sha256": "51641126335fe244887890a419b993c0a39cf016d53d627f634461faaecf1873"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F04-parent-development/stable_summary.json",
+          "sha256": "41fe27a312c9a0b2ce184f9eea003d685ef02ad25c16823ce2e52a230ae63bcd"
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "goal": "Generate neutral, connected small molecules that contain at least one six-membered aza-aromatic ring and at least one free primary or secondary amine.",
+      "goal_index": 3,
+      "p_G": {
+        "child": 0.138671875,
+        "child_judgment": "G05-child-development",
+        "parent": 0.072265625,
+        "parent_judgment": "G05-parent-development"
+      },
+      "p_F": {
+        "child": 0.0,
+        "child_judgment": "F05-child-development",
+        "parent": 0.0,
+        "parent_judgment": "F05-parent-development"
+      },
+      "enriched": false,
+      "round_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-05/round_result.json",
+        "sha256": "a2e54efa98eafe8198765de4a6ca35ea4447b31a3dda2aec31dfa579f123ce12"
+      },
+      "training_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-05/update/training_result.json",
+        "sha256": "78561c0e1eb177d54d787100942a9718e4833647811f0055a8459a98d74de2e4"
+      },
+      "parent_checkpoint_sha256": "5384b19b86751fef96e7336cf5f2dca1870ea1eb6cacc8c315c8ed32dcb72287",
+      "child_checkpoint_sha256": "70aa7b2a664c516a9d151385fefd9081ffad73debcac97faea1e474e89d66bc3",
+      "judgments": [
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G05-child-development/stable_summary.json",
+          "sha256": "d73ff593d7b23b84ce32938bbfeba7769b57a493c9d20d3a9b832ee7c80f8f9f"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G05-parent-development/stable_summary.json",
+          "sha256": "167726294545d694020611a2cbcb52848d175df0ff0c9aec4a6079554fd3664e"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F05-child-development/stable_summary.json",
+          "sha256": "0da3f03a19f7447bec333a08725147f1729b0a94e68bd29173636ff094b74359"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F05-parent-development/stable_summary.json",
+          "sha256": "e278062b686bc0b5e21f70f2de59fba7c7e80261fa25585940f8972e23c1ac49"
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "goal": "Generate neutral, connected small molecules that contain at least one six-membered aza-aromatic ring and at least one free primary or secondary amine.",
+      "goal_index": 3,
+      "p_G": {
+        "child": 0.173828125,
+        "child_judgment": "G06-child-development",
+        "parent": 0.138671875,
+        "parent_judgment": "G06-parent-development"
+      },
+      "p_F": {
+        "child": 0.001953125,
+        "child_judgment": "F06-child-development",
+        "parent": 0.0,
+        "parent_judgment": "F06-parent-development"
+      },
+      "enriched": false,
+      "round_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-06/round_result.json",
+        "sha256": "1f10fc1eefe05029529e497f340a3bec4ea17a5e2bc9906a42edf74feb4f941e"
+      },
+      "training_record": {
+        "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-06/update/training_result.json",
+        "sha256": "e707f6add57fa94a26bf360c907f59ce6d573b8b07319333979606e1c4293359"
+      },
+      "parent_checkpoint_sha256": "70aa7b2a664c516a9d151385fefd9081ffad73debcac97faea1e474e89d66bc3",
+      "child_checkpoint_sha256": "052bc5e228f5f9241511281f2215587dea68f2929a0952db94ca4aa8e00c2c8a",
+      "judgments": [
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G06-child-development/stable_summary.json",
+          "sha256": "3f80125a980c5d409b721498e36a4fac00bcb717f788797d7b82420ab97b955b"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/G06-parent-development/stable_summary.json",
+          "sha256": "1f8c99040e9d53a909fc6c5178c82e19a4b0dd39f5c723a3cb139da7346d03e9"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F06-child-development/stable_summary.json",
+          "sha256": "04a87f6ac270d4f4131517f53b8bb7d999f692f1f8f2918368531f4ea7a9a8b4"
+        },
+        {
+          "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/judgments/F06-parent-development/stable_summary.json",
+          "sha256": "5bc68430276ffe2ec021094fb4701f79e1e098d0855fa86f7844598c3dab7930"
+        }
+      ]
+    }
+  ],
+  "reported_development_attempts": 512,
+  "reported_final_goal_positive_count": 1,
+  "reported_final_goal_positive_fraction": 0.001953125,
+  "illustrated_candidate": {
+    "generation_index": 154,
+    "blinded_item_id": "item_151",
+    "sdf": {
+      "path": "runs/kinase-ltfd-linkrelaxed-p020-x20-05/campaign/rounds/round-06/development/child/generation/sdf/sample_154.sdf",
+      "sha256": "172fe58b1b4092ff745d9e3893f2cd3a85f4cd97a5791decb5eef3dfedf8177e"
+    }
+  },
+  "baseline_source": {
+    "path": "runs/molecules-kinase-binary-comparison-v2-kinase-bin-v1-20260920/summary.json",
+    "sha256": "4b8653f2c246615510bfd9f83096885ccede53a2bbc22f5e4d1e53730be4bc1b"
+  },
+  "baseline_results": [
+    {
+      "baseline": "DPO",
+      "training_rollout_sample_count": 512,
+      "training_rollout_positive_count": 0,
+      "training_rollout_positive_fraction": 0.0,
+      "update_performed": false,
+      "guidance_performed": false,
+      "action_performed": false
+    },
+    {
+      "baseline": "FlowGRPO",
+      "training_rollout_sample_count": 512,
+      "training_rollout_positive_count": 0,
+      "training_rollout_positive_fraction": 0.0,
+      "update_performed": false,
+      "guidance_performed": false,
+      "action_performed": false
+    },
+    {
+      "baseline": "DiffusionNFT",
+      "training_rollout_sample_count": 512,
+      "training_rollout_positive_count": 0,
+      "training_rollout_positive_fraction": 0.0,
+      "update_performed": false,
+      "guidance_performed": false,
+      "action_performed": false
+    },
+    {
+      "baseline": "Reward guidance",
+      "training_rollout_sample_count": 512,
+      "training_rollout_positive_count": 0,
+      "training_rollout_positive_fraction": 0.0,
+      "update_performed": false,
+      "guidance_performed": false,
+      "action_performed": false
+    }
+  ],
+  "baseline_guidance_cohort": "same 512-molecule cohort as FlowGRPO",
+  "optional_comparisons_without_reported_result": [
+    "Reward tilting"
+  ]
+}

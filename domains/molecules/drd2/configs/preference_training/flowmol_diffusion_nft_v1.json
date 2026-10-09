@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "adapter_id": "flowmol3_flow_matching_nft_v1",
+  "generator": "FlowMol3",
+  "algorithm": "diffusion_nft_v1",
+  "arm_role": "reward_optimization_baseline",
+  "reference": "Zheng et al., DiffusionNFT: Online Diffusion Reinforcement with Forward Process, ICLR 2026 (arXiv:2509.16117)",
+  "reward_model_id": "tdc_olivecrona_drd2_current_fcfp6",
+  "reward_endpoint": "tdc_drd2_probability_times_mollogp_1_to_3",
+  "optimized_loss_component": "FlowMol3 multi-modal flow-matching loss on coordinates, atom types, charges and bonds, evaluated on the implicit positive and negative policies",
+  "beta": 1.0,
+  "reward_normalizer": "global_std",
+  "soft_update_slope": 0.001,
+  "soft_update_maximum": 0.5,
+  "learning_rate": 0.0001,
+  "optimizer_steps": 1600,
+  "batch_size": 8,
+  "gradient_accumulation_steps": 1,
+  "minimum_sample_count": 16,
+  "minimum_group_count": 1,
+  "nft_iteration": 1,
+  "group_definition": "Rewards are centred within a group, so only the ranking among candidates sharing a condition drives the update. FlowMol3 sampling is unconditional on GEOM-Drugs, so one rollout is one group by default.",
+  "hyperparameter_provenance": {
+    "beta": "Paper selects beta of 1 or 0.1 and reports 1 as the stable choice; Figure 10.",
+    "soft_update": "Paper uses eta_i = min(0.001 i, 0.5). This 1-stage baseline sets nft_iteration=1 so eta=0.001. The held-out evaluator still judges the trained policy, not the EMA collection snapshot.",
+    "learning_rate_steps_batch": "1600 optimizer steps, learning rate 1e-4, and batch size 8 for the reward comparison.",
+    "loss_weighting": "FlowMol3's own multi-modal flow-matching weighting is retained."
+  },
+  "parameterization_note": "The paper is written for a velocity predictor. FlowMol3 predicts endpoints / velocities, so the implicit policies are formed on vector_field outputs without a score-to-velocity conversion.",
+  "claim_boundary": "This arm optimizes a learned surrogate. Improvement in the TDC-DRD2 \u00d7 MolLogP product is not evidence of improved binding, and only the held-out GNINA endpoint may be compared across arms."
+}

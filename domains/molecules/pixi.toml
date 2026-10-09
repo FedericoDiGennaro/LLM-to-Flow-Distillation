@@ -1,0 +1,34 @@
+[workspace]
+authors = ["rdesanti"]
+channels = ["pytorch", "nvidia", "conda-forge", "pyg", "dglteam/label/cu121"]
+name = "ltfd-flowmol-euler"
+platforms = ["linux-64"]
+version = "0.1.0"
+description = "Pinned Euler runtime for FlowMol3 GEOM-Drugs sampling"
+
+[tasks]
+
+[dependencies]
+python = "3.10.*"
+pytorch = { version = "==2.2.0", build = "*cuda12.1*" }
+pytorch-cuda = "12.1.*"
+pytorch-lightning = "2.1.*"
+pytorch-scatter = { version = "==2.1.2", build = "*torch_2.2.0_cu121*" }
+dgl = { version = "==2.0.0.cu121" }
+numpy = "1.26.*"
+einops = "*"
+pyyaml = "*"
+scipy = "*"
+pandas = "*"
+networkx = "*"
+tqdm = "*"
+pip = "*"
+setuptools = "69.*"
+
+[pypi-dependencies]
+rdkit = "==2025.3.2"
+torch-ema = "==0.3"
+posebusters = "==0.4.4"
+useful-rdkit-utils = "==0.3.12"
+wandb = "==0.16.2"
+pydantic = ">=2.6,<3"

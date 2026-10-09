@@ -1,0 +1,873 @@
+{
+  "schema_version": 1,
+  "paper_goal": 3,
+  "appendix": "D.2.1",
+  "receptor": "PDB 6CM4",
+  "reported_checkpoint": {
+    "run": "drugs-ltfd-c3h3g2s-07g-03",
+    "round": 3,
+    "paper_goal": "F",
+    "training_record": {
+      "path": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-03/update/training_result.json",
+      "sha256": "ae7030c89b9f5808f7047aed74d88e878d0cce29102729cf9f3e085acb36f72a"
+    },
+    "parent_checkpoint_sha256": "9a90cfd436c5a43b1403ce6d51f4678c7412b1791fb0d991ccba46a5c164305d",
+    "child_checkpoint_sha256": "65c1d1b7bc28dac7be8f62a413948aa933f8af7bcda0051cb5a4da86ec40f37a"
+  },
+  "lineage": [
+    {
+      "run": "drugs-ltfd-c3",
+      "round": 1,
+      "paper_goal": "g0",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3/campaign/rounds/round-01/update/training_result.json",
+        "sha256": "49ab14841777ddf276a2b8e83fcdae3161dc0af40eed963520df1a0ff2aee8a4"
+      },
+      "parent_checkpoint_sha256": "0e949b56b54c1d2fcbded4f0c9857bfd33dbde86bcc9db2f82572628f7f9f5b5",
+      "child_checkpoint_sha256": "62c39ce6dbf080c34279f6e911c215f638b9354881173ad3562eeeef61c23d5c"
+    },
+    {
+      "run": "drugs-ltfd-c3h3",
+      "round": 1,
+      "paper_goal": "g0",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3/campaign/rounds/round-01/update/training_result.json",
+        "sha256": "b327d2cd71206eb99cf401b48733b7af9b326706c082ffd2d76ba0c162384629"
+      },
+      "parent_checkpoint_sha256": "62c39ce6dbf080c34279f6e911c215f638b9354881173ad3562eeeef61c23d5c",
+      "child_checkpoint_sha256": "5347df1ff0a1238105fb7741c34ee3d077aa0e047c656f4acad2eea8684d3b69"
+    },
+    {
+      "run": "drugs-ltfd-c3h3",
+      "round": 2,
+      "paper_goal": "g0",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3/campaign/rounds/round-02/update/training_result.json",
+        "sha256": "dce47799095b3ac3ad668db2b117ac6b6771f5630b8ec79084c178daeba9de06"
+      },
+      "parent_checkpoint_sha256": "5347df1ff0a1238105fb7741c34ee3d077aa0e047c656f4acad2eea8684d3b69",
+      "child_checkpoint_sha256": "9e3ca778b85792691d64c0f848d8b1a3e91b0cd84664f08a7a8c77095f2f222f"
+    },
+    {
+      "run": "drugs-ltfd-c3h3g2-08",
+      "round": 1,
+      "paper_goal": "g0",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3g2-08/campaign/rounds/round-01/update/training_result.json",
+        "sha256": "ae6da18c9cb75c422580a633980bebfc1203f8b483c28aa25f5afa3b01e2b3c9"
+      },
+      "parent_checkpoint_sha256": "9e3ca778b85792691d64c0f848d8b1a3e91b0cd84664f08a7a8c77095f2f222f",
+      "child_checkpoint_sha256": "a7565c0aa8341f94dba4df8deba95f54384ff815d38b5c21f19aad8cf375bf8e"
+    },
+    {
+      "run": "drugs-ltfd-c3h3g2-08",
+      "round": 2,
+      "paper_goal": "g0",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3g2-08/campaign/rounds/round-02/update/training_result.json",
+        "sha256": "d6e6c016c2756394c5efad6d8e2d3e547b7d0a38a50425892e05dcabdc6b58a4"
+      },
+      "parent_checkpoint_sha256": "a7565c0aa8341f94dba4df8deba95f54384ff815d38b5c21f19aad8cf375bf8e",
+      "child_checkpoint_sha256": "ac597d87242c5a0134a5a2a0f5acc325de9b7752c466792e4eb1a073d4821d8a"
+    },
+    {
+      "run": "drugs-ltfd-c3h3g2s-07",
+      "round": 1,
+      "paper_goal": "g1",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3g2s-07/campaign/rounds/round-01/update/training_result.json",
+        "sha256": "fe16e7357755103a26caedf431892f11ea597342c91046cd6b84b68a804f0d07"
+      },
+      "parent_checkpoint_sha256": "ac597d87242c5a0134a5a2a0f5acc325de9b7752c466792e4eb1a073d4821d8a",
+      "child_checkpoint_sha256": "ec74e4bca11ffc7dcb7102f7d6624510544afd69aedc3edb8147b2a039f5a02f"
+    },
+    {
+      "run": "drugs-ltfd-c3h3g2s-07g-03",
+      "round": 1,
+      "paper_goal": "F",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-01/update/training_result.json",
+        "sha256": "48df9779ec775c55ba128e44a5c15565071faaafdcf6610349bc60cabbf50ba9"
+      },
+      "parent_checkpoint_sha256": "ec74e4bca11ffc7dcb7102f7d6624510544afd69aedc3edb8147b2a039f5a02f",
+      "child_checkpoint_sha256": "bb6953f63b5d4f0ff027ebea72d6d1ab44a1b9ad224d73135fd331b4081a665f"
+    },
+    {
+      "run": "drugs-ltfd-c3h3g2s-07g-03",
+      "round": 2,
+      "paper_goal": "F",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-02/update/training_result.json",
+        "sha256": "8056337d215d0c83f62a3adee293c10720a50b69ad6b938bfe4c447f86bf33ab"
+      },
+      "parent_checkpoint_sha256": "bb6953f63b5d4f0ff027ebea72d6d1ab44a1b9ad224d73135fd331b4081a665f",
+      "child_checkpoint_sha256": "9a90cfd436c5a43b1403ce6d51f4678c7412b1791fb0d991ccba46a5c164305d"
+    },
+    {
+      "run": "drugs-ltfd-c3h3g2s-07g-03",
+      "round": 3,
+      "paper_goal": "F",
+      "training_record": {
+        "path": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-03/update/training_result.json",
+        "sha256": "ae7030c89b9f5808f7047aed74d88e878d0cce29102729cf9f3e085acb36f72a"
+      },
+      "parent_checkpoint_sha256": "9a90cfd436c5a43b1403ce6d51f4678c7412b1791fb0d991ccba46a5c164305d",
+      "child_checkpoint_sha256": "65c1d1b7bc28dac7be8f62a413948aa933f8af7bcda0051cb5a4da86ec40f37a"
+    }
+  ],
+  "sources": [
+    {
+      "path": "runs/drugs-ltfd-rdock-checkpoint-table/checkpoint_table_with_quality_v1.json",
+      "sha256": "e46ddc1a94e6cadf0278f91bba8f809345e4f60993e237e774ad4fa6127d3d01"
+    },
+    {
+      "path": "runs/molecules-drd2-reward-guidance-20260920T162900Z/baseline_multimetric_quality_report.json",
+      "sha256": "421e5db914b832cf2de96eed5ccefd8e30d6a6bc820442e095499bcfb09f3e98"
+    }
+  ],
+  "curriculum_checkpoint_results": [
+    {
+      "cohort_arm": "parent_checkpoint",
+      "generation_dir": "runs/drugs-ltfd-c3-eval256/parent/generation",
+      "gnina_cnn_affinity": 6.11284375,
+      "gnina_report": "runs/drugs-ltfd-c3-eval256/gnina-observation/evaluation_report.json",
+      "goal": "\u2014",
+      "id": "pretrained",
+      "p_final": 0.05859375,
+      "p_goal": 0.0703125,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.9345472295717082,
+          0.9813959039073644
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.96484375,
+        "successes": 247
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/pretrained/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9852161435741286,
+          0.9999999999999999
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 1.0,
+        "successes": 256
+      },
+      "rdock": {
+        "ci95": [
+          -8.970955978873972,
+          -6.3175096461260285
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -7.6442328125,
+        "n": 32,
+        "sample_standard_deviation": 3.6798413981042053
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/pretrained/evaluation_report.json",
+      "stage": "Pre-trained",
+      "vina_ci95": [
+        -7.906820625294586,
+        -7.128804374705414
+      ],
+      "vina_mean": -7.5178125
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3-eval256/child/generation",
+      "gnina_cnn_affinity": 6.52921875,
+      "gnina_report": "runs/drugs-ltfd-c3-eval256/gnina-observation/evaluation_report.json",
+      "goal": "G1",
+      "id": "c3-r1",
+      "p_final": 0.08984375,
+      "p_goal": 0.15234375,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.9498190043999489,
+          0.9892151324441424
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.9765625,
+        "successes": 250
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/c3-r1/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9852161435741286,
+          0.9999999999999999
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 1.0,
+        "successes": 256
+      },
+      "rdock": {
+        "ci95": [
+          -9.665820894540246,
+          -7.524649105459755
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -8.595235,
+        "n": 32,
+        "sample_standard_deviation": 2.969410947818743
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/c3-r1/evaluation_report.json",
+      "stage": "c3 r1",
+      "vina_ci95": [
+        -8.45174385,
+        -7.57825615
+      ],
+      "vina_mean": -8.015
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3/campaign/rounds/round-01/development/child/generation",
+      "gnina_cnn_affinity": 6.3568125,
+      "gnina_report": "runs/drugs-ltfd-c3h3/campaign/rounds/round-01/gnina-observation/evaluation_report.json",
+      "goal": "G1",
+      "id": "h3-r1",
+      "p_final": 0.15234375,
+      "p_goal": 0.23046875,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.9395583934922568,
+          0.9840817411084887
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.96875,
+        "successes": 248
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/h3-r1/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9852161435741286,
+          0.9999999999999999
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 1.0,
+        "successes": 256
+      },
+      "rdock": {
+        "ci95": [
+          -9.64293896143539,
+          -7.19432366356461
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -8.4186313125,
+        "n": 32,
+        "sample_standard_deviation": 3.395778474933294
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/h3-r1/evaluation_report.json",
+      "stage": "h3 r1",
+      "vina_ci95": [
+        -8.18618577,
+        -7.30506423
+      ],
+      "vina_mean": -7.745625
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3/campaign/rounds/round-02/development/child/generation",
+      "gnina_cnn_affinity": 6.3264375,
+      "gnina_report": "runs/drugs-ltfd-c3h3/campaign/rounds/round-02/gnina-observation/evaluation_report.json",
+      "goal": "G1",
+      "id": "h3-r2",
+      "p_final": 0.1171875,
+      "p_goal": 0.25390625,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.9345472295717082,
+          0.9813959039073644
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.96484375,
+        "successes": 247
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/h3-r2/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9782090246194175,
+          0.9993101178330381
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.99609375,
+        "successes": 255
+      },
+      "rdock": {
+        "ci95": [
+          -9.374809299999217,
+          -7.493591575000782
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -8.4342004375,
+        "n": 32,
+        "sample_standard_deviation": 2.6089025347377324
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/h3-r2/evaluation_report.json",
+      "stage": "h3 r2",
+      "vina_ci95": [
+        -8.33623328,
+        -7.67439172
+      ],
+      "vina_mean": -8.0053125
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3g2-08/campaign/rounds/round-01/development/child/generation",
+      "gnina_cnn_affinity": 6.6751875,
+      "gnina_report": "runs/drugs-ltfd-c3h3g2-08/campaign/rounds/round-01/gnina-observation/evaluation_report.json",
+      "goal": "G1",
+      "id": "c3h3g2-08-r1",
+      "p_final": 0.17578125,
+      "p_goal": 0.296875,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.9296001682001327,
+          0.9786459641572671
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.9609375,
+        "successes": 246
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/c3h3g2-08-r1/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9852161435741286,
+          0.9999999999999999
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 1.0,
+        "successes": 256
+      },
+      "rdock": {
+        "ci95": [
+          -10.031677726078012,
+          -8.058816023921988
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -9.045246875,
+        "n": 32,
+        "sample_standard_deviation": 2.735995853667672
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/c3h3g2-08-r1/evaluation_report.json",
+      "stage": "c3h3g2-08 r1",
+      "vina_ci95": [
+        -8.84047368,
+        -7.82640132
+      ],
+      "vina_mean": -8.3334375
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3g2-08/campaign/rounds/round-02/development/child/generation",
+      "gnina_cnn_affinity": 6.60040625,
+      "gnina_report": "runs/drugs-ltfd-c3h3g2-08/campaign/rounds/round-02/gnina-observation/evaluation_report.json",
+      "goal": "G1",
+      "id": "c3h3g2-08-r2",
+      "p_final": 0.16796875,
+      "p_goal": 0.35546875,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.8916056708459876,
+          0.9550644525380292
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.9296875,
+        "successes": 238
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/c3h3g2-08-r2/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9782090246194175,
+          0.9993101178330381
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.99609375,
+        "successes": 255
+      },
+      "rdock": {
+        "ci95": [
+          -10.642487848504347,
+          -8.439880901495654
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -9.541184375,
+        "n": 32,
+        "sample_standard_deviation": 3.054610197810408
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/c3h3g2-08-r2/evaluation_report.json",
+      "stage": "c3h3g2-08 r2",
+      "vina_ci95": [
+        -8.55128808,
+        -7.66746192
+      ],
+      "vina_mean": -8.109375
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3g2s-07/campaign/rounds/round-01/development/child/generation",
+      "gnina_cnn_affinity": 6.6370513834,
+      "gnina_report": "runs/drugs-ltfd-c3h3g2s-07/campaign/rounds/round-01/gnina-observation/evaluation_report.json",
+      "goal": "G2",
+      "id": "g2s-07-r1",
+      "p_final": 0.171875,
+      "p_goal": 0.1953125,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.8916056708459876,
+          0.9550644525380292
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.9296875,
+        "successes": 238
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/g2s-07-r1/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9719672316984642,
+          0.9978549096323186
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.9921875,
+        "successes": 254
+      },
+      "rdock": {
+        "ci95": [
+          -10.11318322009281,
+          -9.474922155401261
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -9.794052687747035,
+        "n": 253,
+        "sample_standard_deviation": 2.577447048034569
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/g2s-07-r1/evaluation_report.json",
+      "stage": "g2s-07 r1",
+      "vina_ci95": [
+        -8.59615186668,
+        -8.23088370644
+      ],
+      "vina_mean": -8.41351778656
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-01/development/child/generation",
+      "gnina_cnn_affinity": 6.65301984127,
+      "gnina_report": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-01/gnina-observation/evaluation_report.json",
+      "goal": "F",
+      "id": "07g-03-r1",
+      "p_final": 0.109375,
+      "p_goal": 0.109375,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.8687984850418649,
+          0.9393866327337874
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.91015625,
+        "successes": 233
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/07g-03-r1/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9661184273321177,
+          0.9960067128769923
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.98828125,
+        "successes": 253
+      },
+      "rdock": {
+        "ci95": [
+          -10.34279716968218,
+          -9.629888219206707
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -9.986342694444444,
+        "n": 252,
+        "sample_standard_deviation": 2.873142241769212
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/07g-03-r1/evaluation_report.json",
+      "stage": "07g-03 r1",
+      "vina_ci95": [
+        -8.72329973537,
+        -8.42146216939
+      ],
+      "vina_mean": -8.57238095238
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-02/development/child/generation",
+      "gnina_cnn_affinity": 6.70825296443,
+      "gnina_report": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-02/gnina-observation/evaluation_report.json",
+      "goal": "F",
+      "id": "07g-03-r2",
+      "p_final": 0.16015625,
+      "p_goal": 0.16015625,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.8824167617091012,
+          0.9488593594315697
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.921875,
+        "successes": 236
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/07g-03-r2/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9782090246194175,
+          0.9993101178330381
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.99609375,
+        "successes": 255
+      },
+      "rdock": {
+        "ci95": [
+          -10.092178644593305,
+          -9.388906809952148
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -9.740542727272727,
+        "n": 253,
+        "sample_standard_deviation": 2.8399757002844974
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/07g-03-r2/evaluation_report.json",
+      "stage": "07g-03 r2",
+      "vina_ci95": [
+        -8.76980731485,
+        -8.40829545195
+      ],
+      "vina_mean": -8.5890513834
+    },
+    {
+      "generation_dir": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-03/development/child/generation",
+      "gnina_cnn_affinity": 6.541524,
+      "gnina_report": "runs/drugs-ltfd-c3h3g2s-07g-03/campaign/rounds/round-03/gnina-observation/evaluation_report.json",
+      "goal": "F",
+      "id": "07g-03-r3",
+      "p_final": 0.17578125,
+      "p_goal": 0.17578125,
+      "posebusters_mol_fast": {
+        "attempts": 256,
+        "ci95": [
+          0.850899024665532,
+          0.9264980886234288
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.89453125,
+        "successes": 229
+      },
+      "quality_report": "runs/drugs-ltfd-quality-256-checkpoint-table/07g-03-r3/evaluation_report.json",
+      "rdkit_validity": {
+        "attempts": 256,
+        "ci95": [
+          0.9551018677503436,
+          0.9916292702154206
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.98046875,
+        "successes": 251
+      },
+      "rdock": {
+        "ci95": [
+          -10.266370355919717,
+          -9.506185164080284
+        ],
+        "ci_method": "two-sided Student-t confidence interval for the mean",
+        "mean": -9.88627776,
+        "n": 250,
+        "sample_standard_deviation": 3.051373002641924
+      },
+      "rdock_endpoint": "selected_pose_SCORE_INTER",
+      "rdock_report": "runs/drugs-ltfd-rdock-checkpoint-table/07g-03-r3/evaluation_report.json",
+      "stage": "07g-03 r3",
+      "vina_ci95": [
+        -8.63795618741,
+        -8.32036381259
+      ],
+      "vina_mean": -8.47916
+    }
+  ],
+  "baseline_results": [
+    {
+      "label": "DPO",
+      "model_id": "dpo-b",
+      "checkpoint": "runs/molecules-drd2-dpo-b-20260914T105650Z/campaign/rounds/round-01/update/last.ckpt",
+      "optimizer_steps": 512,
+      "gnina_cnn_affinity": {
+        "ci95_lower": 5.549089812173183,
+        "ci95_upper": 5.647366354824466,
+        "degrees_of_freedom": 4,
+        "mean": 5.5982280834988245,
+        "seed_mean_std": 0.03957453175474726,
+        "standard_error": 0.01769826863626778,
+        "t_critical": 2.7764451051977987
+      },
+      "vina_affinity": {
+        "ci95_lower": -6.892157804735662,
+        "ci95_upper": -6.72562705856293,
+        "degrees_of_freedom": 4,
+        "mean": -6.808892431649296,
+        "seed_mean_std": 0.06705950499234925,
+        "standard_error": 0.029989922340075886,
+        "t_critical": 2.7764451051977987
+      },
+      "rdock_selected_pose_SCORE_INTER": {
+        "ci95_lower": -8.466119744109822,
+        "ci95_upper": -7.745616270092634,
+        "degrees_of_freedom": 4,
+        "mean": -8.105868007101227,
+        "seed_mean_std": 0.29013625065214615,
+        "standard_error": 0.12975287583902329,
+        "t_critical": 2.7764451051977987
+      },
+      "rdkit_validity_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9782090246194175,
+          0.9993101178330381
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.99609375,
+        "successes": 255
+      },
+      "posebusters_mol_fast_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9498190043999489,
+          0.9892151324441424
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.9765625,
+        "successes": 250
+      },
+      "sampling_seed_count": 5,
+      "generation_attempts": 1280,
+      "gnina_docked_count": 1272,
+      "quality_sampling_seed": 34601,
+      "quality_attempts": 256
+    },
+    {
+      "label": "DiffusionNFT",
+      "model_id": "nft",
+      "checkpoint": "runs/molecules-drd2-nft-1600-20260919T171622Z/campaign/rounds/round-01/update/last.ckpt",
+      "optimizer_steps": 1600,
+      "gnina_cnn_affinity": {
+        "ci95_lower": 6.16055755464015,
+        "ci95_upper": 6.306882018934102,
+        "degrees_of_freedom": 4,
+        "mean": 6.233719786787126,
+        "seed_mean_std": 0.05892272970208985,
+        "standard_error": 0.026351045806743766,
+        "t_critical": 2.7764451051977987
+      },
+      "vina_affinity": {
+        "ci95_lower": -8.12448199176397,
+        "ci95_upper": -7.667330659970767,
+        "degrees_of_freedom": 4,
+        "mean": -7.895906325867369,
+        "seed_mean_std": 0.18408818023818613,
+        "standard_error": 0.08232673697336351,
+        "t_critical": 2.7764451051977987
+      },
+      "rdock_selected_pose_SCORE_INTER": {
+        "ci95_lower": -9.652327315101523,
+        "ci95_upper": -9.132418359009826,
+        "degrees_of_freedom": 4,
+        "mean": -9.392372837055674,
+        "seed_mean_std": 0.2093597611124328,
+        "standard_error": 0.09362853152010334,
+        "t_critical": 2.7764451051977987
+      },
+      "rdkit_validity_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9852161435741286,
+          0.9999999999999999
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 1.0,
+        "successes": 256
+      },
+      "posebusters_mol_fast_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9498190043999489,
+          0.9892151324441424
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.9765625,
+        "successes": 250
+      },
+      "sampling_seed_count": 5,
+      "generation_attempts": 1280,
+      "gnina_docked_count": 1260,
+      "quality_sampling_seed": 34601,
+      "quality_attempts": 256
+    },
+    {
+      "label": "FlowGRPO",
+      "model_id": "flowgrpo",
+      "checkpoint": "runs/molecules-drd2-flowgrpo-20260919T151500Z/update/last.ckpt",
+      "optimizer_steps": 64,
+      "gnina_cnn_affinity": {
+        "ci95_lower": 6.258519340759997,
+        "ci95_upper": 6.382536354925102,
+        "degrees_of_freedom": 4,
+        "mean": 6.320527847842549,
+        "seed_mean_std": 0.04993984457329497,
+        "standard_error": 0.022333777450332305,
+        "t_critical": 2.7764451051977987
+      },
+      "vina_affinity": {
+        "ci95_lower": -7.916447325800934,
+        "ci95_upper": -7.73950226264665,
+        "degrees_of_freedom": 4,
+        "mean": -7.827974794223792,
+        "seed_mean_std": 0.07125319869556455,
+        "standard_error": 0.031865399179516335,
+        "t_critical": 2.7764451051977987
+      },
+      "rdock_selected_pose_SCORE_INTER": {
+        "ci95_lower": -8.421413463465838,
+        "ci95_upper": -7.875138357808033,
+        "degrees_of_freedom": 4,
+        "mean": -8.148275910636935,
+        "seed_mean_std": 0.2199770253659866,
+        "standard_error": 0.09837671644130831,
+        "t_critical": 2.7764451051977987
+      },
+      "rdkit_validity_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9852161435741286,
+          0.9999999999999999
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 1.0,
+        "successes": 256
+      },
+      "posebusters_mol_fast_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9247089445363343,
+          0.9758401866993924
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.95703125,
+        "successes": 245
+      },
+      "sampling_seed_count": 5,
+      "generation_attempts": 1280,
+      "gnina_docked_count": 1273,
+      "quality_sampling_seed": 34601,
+      "quality_attempts": 256
+    },
+    {
+      "label": "Reward guidance",
+      "model_id": "reward-guidance",
+      "checkpoint": "runs/molecules-drd2-reward-guidance-20260920T162900Z/training/reward_predictor.pt",
+      "optimizer_steps": 1600,
+      "gnina_cnn_affinity": {
+        "ci95_lower": 6.219627799646962,
+        "ci95_upper": 6.355072145679366,
+        "degrees_of_freedom": 4,
+        "mean": 6.287349972663164,
+        "seed_mean_std": 0.054541464610531845,
+        "standard_error": 0.02439168449230966,
+        "t_critical": 2.7764451051977987
+      },
+      "vina_affinity": {
+        "ci95_lower": -7.860561238627998,
+        "ci95_upper": -7.448836323937819,
+        "degrees_of_freedom": 4,
+        "mean": -7.654698781282908,
+        "seed_mean_std": 0.1657956239714589,
+        "standard_error": 0.07414605711443514,
+        "t_critical": 2.7764451051977987
+      },
+      "rdock_selected_pose_SCORE_INTER": {
+        "ci95_lower": -8.171126068129494,
+        "ci95_upper": -7.677034139205272,
+        "degrees_of_freedom": 4,
+        "mean": -7.924080103667383,
+        "seed_mean_std": 0.19896362044763824,
+        "standard_error": 0.08897923607407725,
+        "t_critical": 2.7764451051977987
+      },
+      "rdkit_validity_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9782090246194175,
+          0.9993101178330381
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.99609375,
+        "successes": 255
+      },
+      "posebusters_mol_fast_256": {
+        "attempts": 256,
+        "ci95": [
+          0.9247089445363343,
+          0.9758401866993924
+        ],
+        "ci_method": "Wilson score, z=1.959963984540054",
+        "proportion": 0.95703125,
+        "successes": 245
+      },
+      "sampling_seed_count": 5,
+      "generation_attempts": 1280,
+      "gnina_docked_count": 1270,
+      "quality_sampling_seed": 34601,
+      "quality_attempts": 256
+    }
+  ],
+  "baseline_sampling_seeds": [
+    34601,
+    35601,
+    36601,
+    37601,
+    38601
+  ],
+  "attempts_per_sampling_seed": 256,
+  "baseline_confidence_interval": {
+    "degrees_of_freedom": 4,
+    "level": 0.95,
+    "method": "two-sided Student-t interval over five sampling-seed means",
+    "unit": "sampling_seed_mean"
+  },
+  "quality_protocol": {
+    "attempts_per_model": 256,
+    "confidence_interval": "95% Wilson score interval",
+    "denominator": "all_generation_attempts",
+    "posebusters_energy_ratio_enabled": false,
+    "posebusters_preset": "mol_fast",
+    "posebusters_setup_receipt_sha256": "424f5b4f27de62d369a9334979682b509c619ba1b739a95c5dfcc568b439e992",
+    "posebusters_version": "0.6.5",
+    "rdkit_definition": "load SDF with sanitize=False, then require Chem.SanitizeMol to return SANITIZE_NONE",
+    "sampling_seed": 34601
+  },
+  "optional_comparisons_without_reported_result": [
+    "Reward tilting"
+  ]
+}

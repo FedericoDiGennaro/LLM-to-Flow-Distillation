@@ -1,0 +1,27 @@
+{
+  "candidate_count": 100,
+  "cardinal_predictor_outputs_visible": false,
+  "claim_boundary": "PepDFM canonical sequences and uncertain target-independent evidence; no activity validation claim.",
+  "device": "cuda:0",
+  "experiment_id": "EXP-0189-gate50_F30-18601",
+  "external_peptide_dataset_visible": false,
+  "generator": "released unconditional PepDFM p0",
+  "improvement_matrix": true,
+  "labelled_reference_context_visible": false,
+  "length_policy": "host-preregistered12/24/38 counts35/40/25; frozen beforep0",
+  "num_steps": 100,
+  "predictor_batch_size": 16,
+  "predictor_representation": "frozen-p0 within-length qualitative empirical tertiles only",
+  "protocol_version": "geometric-semantic-reachability-v13",
+  "sampling_batch_size": 60,
+  "schema_version": 1,
+  "seed": 18601,
+  "source_distribution": "uniform",
+  "target_specific_predictor_visible": false,
+  "visible_predictors": [
+    "non_hemolysis",
+    "non_fouling",
+    "solubility",
+    "half_life"
+  ]
+}

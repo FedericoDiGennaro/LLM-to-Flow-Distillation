@@ -1,0 +1,146 @@
+{
+  "dpo": {
+    "protocol": "cpp-reward-baselines-v1",
+    "seed": 18601,
+    "arms": [
+      "dpo"
+    ],
+    "start": "released PepDFM p0 only",
+    "reward": "CellPPD Dataset1 AAC20+DPC400 RF, 500 trees, min_samples_leaf2, sqrt features, balanced class weights, seed18601",
+    "length_counts": {
+      "12": 35,
+      "24": 40,
+      "38": 25
+    },
+    "sampling_steps": 100,
+    "training_sampling_seed": "18601+1000000+(update-1)*100000+length",
+    "endpoint_sampling_seed": "18601+900000+length",
+    "endpoint_count": 100,
+    "dpo": {
+      "updates": 1,
+      "steps": 100,
+      "batch_size": 32,
+      "beta": 2.6,
+      "lr": 5e-06,
+      "pair_count": 400,
+      "top": 20,
+      "bottom": 20
+    },
+    "gradient_clip": 0.1,
+    "evaluation": "Frozen pLM4CPPs ESM2-640 plus released HemoPI2, optimization-inaccessible, no reward/parameter selection from evaluator outcomes",
+    "replication": "one exploratory training seed; 4000 length-stratified candidate bootstraps; not training-seed uncertainty",
+    "invalid_draws": "preserve all raw draws and fail evaluation without replacement; report incomplete rather than silently filter",
+    "budget_caveat": "5 updates vs1 is user-requested, not compute-matched. Guidance has no parameter update and makes more reward calls.",
+    "safety_caveat": "Reward baselines optimize CPP alone; HemoPI2 stays heldout and is not general mammalian toxicity.",
+    "data_caveat": "Reward and evaluator share historical labels; evaluator is held out from optimization, not data-independent.",
+    "api_calls": 0
+  },
+  "nft": {
+    "protocol": "cpp-reward-baselines-v1",
+    "seed": 18601,
+    "arms": [
+      "nft7"
+    ],
+    "start": "released PepDFM p0 only",
+    "reward": "CellPPD Dataset1 AAC20+DPC400 RF, 500 trees, min_samples_leaf2, sqrt features, balanced class weights, seed18601",
+    "length_counts": {
+      "12": 35,
+      "24": 40,
+      "38": 25
+    },
+    "sampling_steps": 100,
+    "training_sampling_seed": "18601+1000000+(update-1)*100000+length",
+    "endpoint_sampling_seed": "18601+900000+length",
+    "endpoint_count": 100,
+    "gradient_clip": 0.1,
+    "evaluation": "Frozen pLM4CPPs ESM2-640 plus released HemoPI2, optimization-inaccessible, no reward/parameter selection from evaluator outcomes",
+    "replication": "one exploratory training seed; 4000 length-stratified candidate bootstraps; not training-seed uncertainty",
+    "invalid_draws": "preserve all raw draws and fail evaluation without replacement; report incomplete rather than silently filter",
+    "budget_caveat": "Seven updates versus five/six is a user-requested update-count follow-up, not equal optimization budgets.",
+    "safety_caveat": "Reward baselines optimize CPP alone; HemoPI2 stays heldout and is not general mammalian toxicity.",
+    "data_caveat": "Reward and evaluator share historical labels; evaluator is held out from optimization, not data-independent.",
+    "api_calls": 0,
+    "nft7": {
+      "updates": 7,
+      "steps_per_update": 100,
+      "batch_size": 64,
+      "beta": 1,
+      "lr": 1e-05,
+      "ema_decay": "min(.001*update,.5)",
+      "optimizer": "persistent Adam",
+      "sampling_policy": "old EMA",
+      "adaptation": "categorical clean-posterior regression"
+    }
+  },
+  "grpo": {
+    "protocol": "cpp-reward-baselines-v1",
+    "seed": 18601,
+    "arms": [
+      "flowgrpo5"
+    ],
+    "start": "released PepDFM p0 only",
+    "reward": "CellPPD Dataset1 AAC20+DPC400 RF, 500 trees, min_samples_leaf2, sqrt features, balanced class weights, seed18601",
+    "length_counts": {
+      "12": 35,
+      "24": 40,
+      "38": 25
+    },
+    "sampling_steps": 100,
+    "training_sampling_seed": "18601+1000000+(update-1)*100000+length",
+    "endpoint_sampling_seed": "18601+900000+length",
+    "endpoint_count": 100,
+    "flowgrpo5": {
+      "updates": 5,
+      "steps_per_update": 100,
+      "batch_size": 32,
+      "lr": 5e-06,
+      "ppo_clip": 0.2,
+      "base_kl_coefficient": 0.01,
+      "advantage": "within-length current-rollout population mean/std",
+      "ratio": "joint all-position likelihood ratio per exact discrete transition",
+      "time_sampling": "uniform steps1..99; omit deterministic zero-gradient step0",
+      "adaptation": "discrete transition GRPO, not original continuous ODE-to-SDE"
+    },
+    "gradient_clip": 0.1,
+    "evaluation": "Frozen pLM4CPPs ESM2-640 plus released HemoPI2, optimization-inaccessible, no reward/parameter selection from evaluator outcomes",
+    "replication": "one exploratory training seed; 4000 length-stratified candidate bootstraps; not training-seed uncertainty",
+    "invalid_draws": "preserve all raw draws and fail evaluation without replacement; report incomplete rather than silently filter",
+    "budget_caveat": "5 updates vs1 is user-requested, not compute-matched. Guidance has no parameter update and makes more reward calls.",
+    "safety_caveat": "Reward baselines optimize CPP alone; HemoPI2 stays heldout and is not general mammalian toxicity.",
+    "data_caveat": "Reward and evaluator share historical labels; evaluator is held out from optimization, not data-independent.",
+    "api_calls": 0
+  },
+  "guidance": {
+    "protocol": "cpp-reward-baselines-v1",
+    "seed": 18601,
+    "arms": [
+      "guidance"
+    ],
+    "start": "released PepDFM p0 only",
+    "reward": "CellPPD Dataset1 AAC20+DPC400 RF, 500 trees, min_samples_leaf2, sqrt features, balanced class weights, seed18601",
+    "length_counts": {
+      "12": 35,
+      "24": 40,
+      "38": 25
+    },
+    "sampling_steps": 100,
+    "training_sampling_seed": "18601+1000000+(update-1)*100000+length",
+    "endpoint_sampling_seed": "18601+900000+length",
+    "endpoint_count": 100,
+    "guidance": {
+      "strength": 5,
+      "site": "cyclic interior site1+step%length",
+      "utility": "RF on canonical argmax clean-posterior completions for20 substitutions; special-token utility0",
+      "kernel": "one-site exponential reward reweighting of exact marginal discrete transition",
+      "adaptation": "approximate discrete reward guidance, not classifier-gradient guidance or exact Doob transform"
+    },
+    "gradient_clip": 0.1,
+    "evaluation": "Frozen pLM4CPPs ESM2-640 plus released HemoPI2, optimization-inaccessible, no reward/parameter selection from evaluator outcomes",
+    "replication": "one exploratory training seed; 4000 length-stratified candidate bootstraps; not training-seed uncertainty",
+    "invalid_draws": "preserve all raw draws and fail evaluation without replacement; report incomplete rather than silently filter",
+    "budget_caveat": "5 updates vs1 is user-requested, not compute-matched. Guidance has no parameter update and makes more reward calls.",
+    "safety_caveat": "Reward baselines optimize CPP alone; HemoPI2 stays heldout and is not general mammalian toxicity.",
+    "data_caveat": "Reward and evaluator share historical labels; evaluator is held out from optimization, not data-independent.",
+    "api_calls": 0
+  }
+}

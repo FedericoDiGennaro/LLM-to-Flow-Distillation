@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "adapter_id": "flowmol3_flow_matching_nft_v1",
+  "generator": "FlowMol3",
+  "algorithm": "diffusion_nft_v1",
+  "arm_role": "reward_optimization_baseline",
+  "reference": "Zheng et al., DiffusionNFT: Online Diffusion Reinforcement with Forward Process, ICLR 2026 (arXiv:2509.16117)",
+  "reward_model_id": "tdc_gsk3b_current_rf_morgan2_2048",
+  "reward_endpoint": "tdc_gsk3b_random_forest_probability",
+  "optimized_loss_component": "FlowMol3 multi-modal flow-matching loss on coordinates, atom types, charges and bonds, evaluated on the implicit positive and negative policies",
+  "beta": 1.0,
+  "reward_normalizer": "global_std",
+  "soft_update_slope": 0.001,
+  "soft_update_maximum": 0.5,
+  "learning_rate": 1e-4,
+  "optimizer_steps": 2000,
+  "batch_size": 8,
+  "gradient_accumulation_steps": 1,
+  "minimum_sample_count": 16,
+  "minimum_group_count": 1,
+  "nft_iteration": 1,
+  "group_definition": "Rewards are centred within a group, scaled and clipped; ordering and relative reward gaps drive the update. FlowMol3 sampling is unconditional on GEOM-Drugs, so one rollout is one group by default.",
+  "hyperparameter_provenance": {
+    "beta": "Paper selects beta of 1 or 0.1 and reports 1 as the stable choice; Figure 10.",
+    "soft_update": "Paper uses eta_i = min(0.001 i, 0.5). This 1-stage baseline sets nft_iteration=1 so eta=0.001. The held-out evaluator still judges the trained policy, not the EMA collection snapshot.",
+    "learning_rate_steps_batch": "Legacy adapter defaults, not the current campaign schedule. The resolved baselines/nft.json fine_tuning block is authoritative for each run.",
+    "loss_weighting": "FlowMol3's own multi-modal flow-matching weighting is retained."
+  },
+  "parameterization_note": "The paper is written for a velocity predictor. FlowMol3 predicts endpoints / velocities, so the implicit policies are formed on vector_field outputs without a score-to-velocity conversion.",
+  "claim_boundary": "This arm optimizes a learned surrogate. Improvement in TDC GSK3B probability is not independent evidence of binding or solubility. Compare arms using a separately frozen common evaluation, with the training reward reported as a development metric only."
+}

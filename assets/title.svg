@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="82" viewBox="0 0 820 82" role="img" aria-labelledby="title description">
+  <title id="title">LLM-to-Flow Distillation:</title>
+  <desc id="description">Teaching Natural Language Goals to Scientific Generators</desc>
+  <g fill="#1f2328" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="600">
+    <text x="410" y="32" font-size="32">LLM-to-Flow Distillation:</text>
+    <text x="410" y="56" font-size="20">Teaching Natural Language Goals to Scientific Generators</text>
+  </g>
+  <line x1="0" y1="81" x2="820" y2="81" stroke="#d1d9e0" stroke-width="1"/>
+</svg>

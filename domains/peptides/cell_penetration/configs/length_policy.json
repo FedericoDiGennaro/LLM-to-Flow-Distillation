@@ -1,0 +1,51 @@
+{
+  "artifact_content_sha256": "3194f779c43b81ef6b2bfc234fe8638b96c82c2ec313f4ff97e10f09b85efeca",
+  "artifact_schema_version": 1,
+  "external_dataset_or_reference_context_visible": false,
+  "final_goal": "Generate peptides with promising mammalian-cell-penetrating activity while minimizing toxicity to mammalian cells.",
+  "final_goal_sha256": "893fdee48fff65b6bc1d12bdbb05257f0acc963cb0353f5a12309c27e1024434",
+  "length_is_not_evidence_of_goal_satisfaction": true,
+  "length_policy": {
+    "allocations": [
+      {
+        "count": 35,
+        "length": 12
+      },
+      {
+        "count": 40,
+        "length": 24
+      },
+      {
+        "count": 25,
+        "length": 38
+      }
+    ],
+    "frozen_until_goal_changes": true,
+    "length_is_not_evidence_of_goal_satisfaction": true,
+    "rationale": "Host-preregistered matched mixture; no new LLM length selection.",
+    "total_samples": 100
+  },
+  "maximum_samples_per_selected_length": 60,
+  "minimum_samples_per_selected_length": 10,
+  "model_metadata": {
+    "max_output_tokens": 1,
+    "observed_model_version": null,
+    "requested_model": "host-preregistered-no-model-call",
+    "requested_reasoning_effort": "none",
+    "response_id": null,
+    "thought_summary_available": false,
+    "usage": {}
+  },
+  "novel_generated_sequences_are_expected": true,
+  "parent_child_comparisons_require_this_exact_policy": true,
+  "pepdfm_supported_length_maximum": 49,
+  "pepdfm_supported_length_minimum": 6,
+  "policy_frozen_for_entire_campaign": true,
+  "policy_selected_before_p0": true,
+  "protocol": "pre-p0-campaign-length-policy-v13",
+  "request_hash": "12c16681022ca225c596e73972f52fb1c4e98a041ad7021ba4a24d4b4abd3d82",
+  "sample_count": 100,
+  "selected_length_count_maximum": 4,
+  "selected_length_count_minimum": 2,
+  "target_specific_activity_predictor_visible": false
+}

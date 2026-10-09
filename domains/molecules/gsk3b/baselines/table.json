@@ -1,0 +1,50 @@
+{
+  "source_record": "flowmol-scaffold-novelty-20260923/configs/flowmol_scaffold_novelty.json",
+  "source_sha256": "2916ec5796013ee53b2c76900fdff36d039a249e260c17e47c29ba9cf88aeb98",
+  "methods": [
+    {
+      "name": "Base",
+      "sha256": "0e949b56b54c1d2fcbded4f0c9857bfd33dbde86bcc9db2f82572628f7f9f5b5"
+    },
+    {
+      "name": "LFD",
+      "sha256": "86797ecb6c282d6dcea0558713f61b59a86fd41e1b6b1d77c1ea2a3ccb86f28f",
+      "stage": "G04 -> F update2"
+    },
+    {
+      "name": "DPO",
+      "sha256": "7d958fc3a97b923160b219ede2bb26270f8738ff941eb014250e4bd9a51af68a"
+    },
+    {
+      "name": "FlowGRPO",
+      "sha256": "d437b95e4d6420e9e381ec36bf4d60067e4efc1367f8bcad51ca95ef3f808832",
+      "updates": 5
+    },
+    {
+      "name": "DiffusionNFT",
+      "sha256": "0b6e3a783045190ebeb5e63e76b3aeaac6b794f897fc1db114406a2832a56f93",
+      "updates": 7,
+      "role": "trained policy, not collection EMA"
+    },
+    {
+      "name": "Guidance",
+      "surrogate_sha256": "ef5d697f72529defe9f7b48481e5998bc8d47e0a33a804d874d289c727d42447",
+      "categorical_scale": 0.5,
+      "coordinate_scale": 0.02
+    },
+    {
+      "name": "Reward tilting",
+      "policy": "preserve10x and disclose generation-budget mismatch"
+    }
+  ],
+  "sampling_seeds": [
+    34601,
+    35601,
+    36601,
+    37601,
+    38601
+  ],
+  "attempts_per_seed": 256,
+  "top_per_seed": 100,
+  "note": "Five sampling seeds conditional on frozen checkpoints, not independent training seeds. Reward tilting uses 10x proposals. rDock scores are diagnostic because historical redocking controls failed."
+}

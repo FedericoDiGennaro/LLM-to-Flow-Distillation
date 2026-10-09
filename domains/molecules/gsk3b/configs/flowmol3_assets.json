@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "generator": "FlowMol3",
+  "repository": "https://github.com/Dunni3/FlowMol.git",
+  "tag": "v3.1.0",
+  "revision": "40b42309da7247013a6254bbf567f3a8ef8d97c7",
+  "license": "MIT",
+  "pretrained_model": "flowmol3",
+  "training_distribution": "GEOM-Drugs",
+  "config_url": "https://bits.csb.pitt.edu/files/FlowMol/trained_models_v3.1/flowmol3/config.yaml",
+  "config_sha256": "4348d1e10c5fdadb4b0ca6963d5e188008ab50419cd7428a3218c960bfeae82c",
+  "checkpoint_url": "https://bits.csb.pitt.edu/files/FlowMol/trained_models_v3.1/flowmol3/checkpoints/last.ckpt",
+  "checkpoint_sha256": "0e949b56b54c1d2fcbded4f0c9857bfd33dbde86bcc9db2f82572628f7f9f5b5",
+  "official_support_files": {
+    "data/geom_full_kekulized/train_data_n_atoms_histogram.pt": "fe4cfe861403d1d431706f93e7fc9ed48ab26b7bb74b0dcd63f3014b6863c0b2",
+    "data/geom_full_kekulized/train_data_marginal_dists.pt": "9e943c54a0f7363c87538a3c86f9a7f29398af6f4843587b9f6ed398ae3c3ec2",
+    "data/geom_full_kekulized/train_data_valencies_kekulized.json": "10c2ac016417fc1d1d43eebb79b43d2a210828edd4d1735583e5e6cc4b64ea3c"
+  },
+  "local_assets_are_not_committed": true
+}

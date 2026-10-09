@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "protocol_version": "geometric-semantic-reachability-v13",
+  "experiment_id": "PEPDFM-E2E-ANTICANCER-DPO-V1",
+  "generator": "released unconditional PepDFM p0",
+  "seed": 8400,
+  "num_steps": 100,
+  "sampling_batch_size": 60,
+  "source_distribution": "uniform",
+  "device": "cuda:0",
+  "predictor_batch_size": 16,
+  "candidate_count": 100,
+  "length_policy": "selected once by Gemini before p0, then frozen for the entire campaign",
+  "visible_predictors": [
+    "non_hemolysis",
+    "non_fouling",
+    "solubility",
+    "half_life"
+  ],
+  "predictor_representation": "frozen-p0 within-length qualitative empirical tertiles only",
+  "cardinal_predictor_outputs_visible": false,
+  "target_specific_predictor_visible": false,
+  "labelled_reference_context_visible": false,
+  "external_peptide_dataset_visible": false,
+  "claim_boundary": "Pool construction and uncertain target-independent computational evidence only; no anticancer, selectivity, healthy-cell safety, assay, database, or therapeutic claim."
+}

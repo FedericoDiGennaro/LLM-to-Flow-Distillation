@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "experiment_id": "PEPDFM-ACP-DPO-NFT-BASELINES-V1",
+  "output": ".cache/runs/acp-dpo-nft",
+  "asset_dir": ".cache/upstream/mog-dfm",
+  "acp_parameters": "../assets/acp_a_proxy_parameters.json",
+  "anticp2_assets": ".cache/upstream/anticp2",
+  "hemopi2_assets": ".cache/upstream/hemopi2/Model",
+  "hemopi2_overlay": ".cache/env-overlays/hemopi2-sklearn-1.3.1",
+  "historical_base_root": null,
+  "seeds": [
+    12301,
+    12302,
+    12303
+  ],
+  "evaluation_seeds": [
+    10701,
+    10702,
+    10703
+  ],
+  "length_counts": {
+    "12": 35,
+    "24": 40,
+    "38": 25
+  },
+  "sampling_steps": 100,
+  "steps_per_update": 100,
+  "learning_rate": 1e-05,
+  "gradient_clip": 0.1,
+  "epsilon": 0.001,
+  "dpo": {
+    "beta": 2.6,
+    "batch_size": 32,
+    "positive_count": 20,
+    "negative_count": 20,
+    "pair_count": 400
+  },
+  "nft": {
+    "beta": 1,
+    "batch_size": 64,
+    "rounds": 11,
+    "optimizer_state": "persistent_across_rounds",
+    "sampling_policy": "EMA_old",
+    "ema_decay": "min(0.001*round,0.5)",
+    "normalization": "within-length current-rollout mean, global current-rollout population SD",
+    "adaptive_denominator_floor": 1e-05,
+    "reduction": "per-sequence mean over L+2 encoded positions and all24 vocabulary categories",
+    "invalid_training_draws": "fail affected arm, preserve all draws; no replacement",
+    "duplicate_training_draws": "retain multiplicity"
+  },
+  "api_calls": 0,
+  "pinned_files": {
+    "domains/peptides/model.py": "bd507379f75109438edb9f67d52599de93227f7f9815958831adc7155b9821db",
+    "domains/peptides/dpo.py": "8ac85f3aa3a3b77ef69d70c25aab75907665f5be45e79f4083f0c0ded78e36fc",
+    "domains/peptides/checkpoint.py": "3990d89b7e3352a45b10b0431d52c952197c2b2ef6dcc3303fe069307a131579",
+    "domains/peptides/anticancer/baselines/assets/acp_a_proxy_parameters.json": "5c3798a641dc8f1e113fbdec0df2b0e79390fcfd3113eccdedc6af3020fe9922",
+    "domains/peptides/anticancer/baselines/evaluation/anticp2_frozen.py": "f3f849f24693b154f3f005795de2c08eb83598a1ae9f3c0ea1117c73ffcba20a",
+    "domains/peptides/anticancer/baselines/evaluation/hemopi2_rf_adapter.py": "ff0d8d82caab9c68f642400467f730d1a47f3512dbf0383ae3243d13eefafc93"
+  },
+  "asset_pinned_files": {
+    "flow_matching/solver/discrete_solver.py": "e881ee50d5532c16fcbde76d5b26e11633212bd3933e0b424c52678c46d8d4df",
+    "flow_matching/utils/categorical_sampler.py": "b2c9e88f0068dd7e01ca94374d1668f516f3e4e4dede3942412f258393fec013",
+    "ckpt/peptide/cnn_epoch200_lr0.0001_embed512_hidden256_loss3.1051.ckpt": "0b7040a7f28bc7a96fa99a809b001236d5215ec520aa42d8a5a704adcd9aa442"
+  },
+  "anticp2_pinned_files": {
+    "dpc_extra_model": "b37028ba1b8b6c26b7ac332f98b149ca8698892f8a13e10cae1c397b7e803cd6",
+    "aac_extra_model": "d0a1f19fc088ca787fd12eee7dd73d5b9e9de5aafd6949451087141e56e47124"
+  }
+}
