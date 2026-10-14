@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/arXiv-b31b1b" alt="arXiv">
+  <a href="https://arxiv.org/abs/2610.17246"><img src="https://img.shields.io/badge/arXiv-2610.17246-b31b1b" alt="arXiv:2610.17246"></a>
   <a href="https://llm-to-flow-distillation.github.io/"><img src="https://img.shields.io/badge/Project-Page-blue" alt="Project Page"></a>
 </p>
 
